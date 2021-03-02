@@ -1,0 +1,230 @@
+@font-face {
+	font-family: Roboto;
+	src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url('fonts/Roboto-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url('fonts/Roboto-Semibold.ttf');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url('fonts/Roboto-Light.ttf');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: FontAwesome;
+	src: url('fonts/FontAwesome.otf');
+}
+
+.mt-form {
+	position: relative;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.material-datepicker {
+	background: #fff;
+	border-radius: 10px;
+	border:1px solid gray;
+	font-family: Roboto;
+	position: absolute;
+	top: 94%;
+	width: 280px;
+	z-index: 100;
+	box-shadow: 5px 5px 15px #DDD;
+}
+.material-datepicker:focus {
+	outline: none;
+}
+
+.material-datepicker.hide {
+	display: none;
+}
+.material-datepicker a.control,.material-datepicker a.control2 {
+	color: #22BCE0 !important;
+}
+.material-datepicker .prevYear
+{
+	cursor: pointer;
+	font-size: 20px;
+	height: 15px;
+	left: 15px;
+	padding: 0;
+	position: absolute;
+	top: 8px;
+	width: 18px;
+}
+.material-datepicker .control2
+{
+	transition: 0.1s all;
+}
+.material-datepicker .prevYear .control2
+{
+	color: #22BCE0;
+	font-family: FontAwesome;
+	left: -2px;
+	position: absolute;
+	top: 0;
+}
+.material-datepicker .prevYear .control2:nth-child(2)
+{
+	left: 6px;
+}
+.material-datepicker .nextYear
+{
+	cursor: pointer;
+	font-size: 20px;
+	height: 15px;
+	right: 15px;
+	padding: 0;
+	position: absolute;
+	top: 8px;
+	width: 18px;
+}
+.material-datepicker .nextYear .control2
+{
+	color: #22BCE0;
+	font-family: FontAwesome;
+	left: -2px;
+	position: absolute;
+	top: 0;
+}
+.material-datepicker .nextYear .control2:nth-child(2)
+{
+	left: 6px;
+}
+section.top-day {
+	background-color: #11ABD0;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	height: 32px;
+	line-height: 32px;
+	border-top-right-radius: 9px;
+	border-top-left-radius: 9px;
+	text-align: center;
+}
+section.top-day span
+{
+	background: red;
+}
+section.middle-date {
+	background-color: #22BCE0;
+	height: 135px;
+	color: #fff;
+	display: none;
+	text-align: center;
+	position: relative;
+}
+
+section.middle-date > .month {
+	padding: 8px 0px;
+	text-transform: uppercase;
+	font-size: 22px
+}
+section.middle-date > .date {
+	font-size: 55px;
+	height: 39px;
+	margin-top: -10px;
+	margin-bottom: 24px;
+}
+section.middle-date > .year {
+	font-size: 26px;
+	font-weight: 400;
+	color: #FFF;
+}
+
+.material-datepicker a.control {
+	font-family: FontAwesome;
+	font-size: 20px;
+	font-weight: 300;
+	position: absolute;
+	cursor: pointer;
+	top: 8px;
+	transition: 0.1s all;
+}
+.material-datepicker a.control:hover, .material-datepicker .completeBottom:hover .control2 {
+	transform: scale(1.2);
+}
+a.prev {
+	left: 48px;
+}
+a.next {
+	right: 48px;
+}
+
+section.calendar {
+	position: relative;
+	padding-bottom: 15px;
+}
+
+section.calendar > .title {
+	margin-top: 8px;
+	padding: 7px;
+ 	text-align: center;
+ 	font-size: 17px;
+}
+
+
+section.calendar .headings > span {
+	color: rgba(0,134,179,1) !important;
+}
+
+section.calendar .days, section.calendar .headings  {
+	margin: auto;
+	text-align: left;
+	width: 250px;
+}
+
+section.calendar .day.heading {
+	color: grey;
+	font-weight: 400;
+}
+
+section.calendar .day {
+	font-size: 16px;
+	display: inline-block;
+	width: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-weight: 300;
+}
+
+section.calendar a.day.today {
+	color: #22BCE0;
+}
+
+section.calendar a.day {
+	cursor: pointer;
+	border-radius: 40px;
+	transition: 0.1s all;
+}
+
+section.calendar a.day.selected {
+	background-color: #22BCE0;
+	color: #fff !important;
+}
+section.calendar a.day.selected:hover {
+	color: #22BCE0 !important;
+}
+section.calendar a.day:hover {
+	background-color: #EDEDED;
+	transform: scale(1.4);
+}

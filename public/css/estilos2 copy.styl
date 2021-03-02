@@ -1,0 +1,6560 @@
+/* Variables */
+
+blue1 = #439FF6
+orange1 = #42974E
+gray1 = #9e9e9e
+gray2 = #8d8d8d
+darkGreen = #2B2C2F
+
+/* Variables */
+
+
+/* Mixins */
+
+totalCenterElement()
+	left 50%
+	position absolute
+	top 50%
+	transform translateX(-50%) translateY(-50%)
+	
+
+verticalCenterElement()
+	position absolute
+	top 50%
+	transform translateY(-50%)
+	
+horizontalCenterElement()
+	position absolute
+	left 50%
+	transform translateX(-50%)
+
+/* Mixins */
+
+
+/* Fonts */
+
+@font-face
+	font-family 'icomoon'
+	src url('fonts/icomoon.eot?-619b11')
+	src url('fonts/icomoon.eot?#iefix-619b11') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-619b11') format('woff'),
+		url('fonts/icomoon.ttf?-619b11') format('truetype'),
+		url('fonts/icomoon.svg?-619b11#icomoon') format('svg')
+	font-weight normal
+	font-style normal
+
+/* Fonts */
+	
+
+/* Animations */
+
+@keyframes sk-bouncedelay 
+	0%, 80%, 100% 
+		transform scale(0)
+	40% 
+		transform scale(1.0)
+
+@keyframes sk-bounce 
+	0%, 100% 
+		transform scale(0.0)
+	50%
+		transform scale(1.0)
+
+@keyframes loading 
+	from 
+		left 50%
+		width 0
+		z-index 100
+	33.3333%
+		left 0
+		width 100%
+		z-index 10
+	to 
+		left 0 
+		width 100%
+
+/* Animations */
+	
+.form-error
+	text-align center
+	color red
+
+html 
+	-webkit-tap-highlight-color rgba(0,0,0,0)
+	tap-highlight-color rgba(0,0,0,0)
+	font-size 16px
+	height 100%
+	width 100%
+	
+body 
+	//user-select none
+	// background-color #E8E8E8
+	// background radial-gradient(circle, rgba(238,238,238,1) 0%, rgba(221,221,221,1) 55%, rgba(238,238,238,1) 100%)
+	background-color #F2F3F5
+	font-family 'IBM Plex Serif', 'sans-serif'
+	font-size 16px
+	height 100vh
+	margin 0
+	overflow auto
+	padding 0
+	position relative
+	width 100%
+	
+	canvas
+		display none
+		
+	#load-bar
+		background-color blue1
+		display none
+		height 6px
+		position fixed
+		width 100%
+		z-index 100
+
+		.bar 
+			content ""
+			display inline
+			height 100%
+			left 50%
+			position absolute
+			text-align center
+			width 0
+
+		.bar:nth-child(1) 
+			animation loading 3s linear infinite
+			background-color orange1
+
+		.bar:nth-child(2) 
+			animation loading 3s linear 1s infinite
+			background-color #27ae60
+
+		.bar:nth-child(3) 
+			animation loading 3s linear 2s infinite
+			background-color blue1
+	
+	#wrapper
+		margin 0 auto
+		//max-width 1200px
+		//min-height calc(100vh + 55px)
+		min-height calc(100vh + 55px)
+		//height 90vh
+		min-width 320px
+		//padding-bottom 130px
+		overflow hidden
+		position relative
+		
+		&.chat
+			background-color #FFF
+			min-height 100vh
+			padding-bottom 0
+			
+			footer 
+				display none
+			
+			#webContent
+				padding-bottom 0
+		
+		&.home
+			
+			#webContent
+				padding-bottom 0
+				max-width none
+				
+			header
+				background-color rgba(darkGreen,0.5)
+				border-radius 0
+
+				section 
+					background-color rgba(darkGreen,0.5)
+					border-radius 0
+					
+				.menu-btn-pc,
+				.search-principal.sp-head
+					display none !important
+
+		#main.blur
+			filter blur(15px)
+			-webkit-filter blur(15px)
+		
+		a:not(.no-style)
+			color darken(blue1, 30%)
+			cursor pointer
+			text-decoration none
+			
+			&:hover
+				text-decoration underline
+		
+		a.no-style
+			color inherit
+			cursor inherit
+			display block
+			text-decoration inherit
+		
+		label
+			font-weight normal
+	
+		footer 
+			// background-color orange1
+			bottom 0
+			color #000
+			font-size 0.9em
+			// height calc(55px + 45px)
+			height 35px
+			left 0
+			position absolute
+			text-align right
+			width 100%
+			
+			p
+				margin-right 10px
+				margin-top 5px
+
+				// &:nth-child(1)
+				// 	margin-top 0.3em
+				// 	margin-bottom 0.3em
+			
+			.go-top-btn
+				background-color blue1
+				bottom 10px
+				position absolute
+				right 10px
+			
+				&:before
+					content "\f062"
+					
+		header 
+			box-shadow 0px 0px 5px grey
+			background-color #FFF
+			height 50px
+			// margin 0 auto
+			// max-width 1200px
+			position relative
+			
+			&.principal
+				background-color rgba(darkGreen,0.45) !important
+				border-radius 0
+				box-shadow none !important
+				z-index 8
+				
+				section 
+					background-color rgba(darkGreen,0.45) !important
+					border-radius 0
+
+			section 
+				// background-color darkGreen
+				font-size 20px
+				height 50px
+				position relative
+				text-align left
+
+				h1
+					color #FFF
+					cursor pointer
+					display inline-block
+					font-family 'Libre Baskerville', serif
+					font-size 33px
+					margin 0
+					left 40px
+					text-align center
+					/*text-shadow 1px 1px 1px #333, 2px 2px 1px #666, 3px 3px 1px #999, 4px 4px 1px blue1*/
+					text-shadow 1px 1px 1px #333, 2px 2px 1px #333, 1px 1px 5px #666, 1px 1px 10px #999, 1px 1px 15px blue1
+					verticalCenterElement()
+				
+				img
+					
+					&:nth-child(3)
+						position absolute
+						right 0
+						top 0
+						width 120px
+				
+				.logoPsvc
+					//border-right blue1 solid 2px
+					height 50px
+					left 10px
+					margin 0
+					position absolute
+					top 0
+					padding 0 3px
+					width 30px
+
+					img
+						
+						&:nth-child(1)
+							height 45px
+							position absolute
+							totalCenterElement()
+				
+				.search-principal
+					display none
+					
+					&.sp-head
+						border-radius 3px
+						box-shadow none
+						font-style normal
+						height 35px
+						left 105px
+						line-height 35px
+						verticalCenterElement()
+						width 35px
+						
+						&.hide
+							display none
+						
+				#content-sesion
+					position absolute
+					top 0
+					right 0
+					height 50px
+					width 35%
+					
+					figure
+						border transparent 2px 
+						font-size 0
+						height 50px
+						margin 0
+						position absolute
+						right 10px
+						text-align right
+						verticalCenterElement()
+						
+						img
+						
+							&:nth-child(1)
+								height 40px
+								position relative
+								top 3px
+						
+						figcaption 
+							color #45494F
+							cursor pointer
+							display none
+							font-size 16px
+							right 50px
+							top 10px
+							verticalCenterElement()
+							white-space nowrap
+
+						img
+							// border 1px solid rgba(255, 255, 255, .2)
+							border-radius 50%
+							cursor pointer
+							height 40px
+							width 40px
+							
+					.btn-sesion
+						background-color blue1
+						border-radius 5px
+						color #FFF
+						cursor pointer
+						font-size 0.7em
+						padding 3px
+						position absolute
+						right 15px
+						transition 0.1s all
+						verticalCenterElement()
+
+			&:hover
+				text-decoration underline
+
+		#content-user
+			right -100%
+		
+			&.open
+				right 0px
+		
+		#contentSearch
+			background-color #FFF
+			box-shadow 0px 5px 5px -5px gray
+			position fixed
+			top 0
+			width 100%
+			z-index 13
+			
+			&.fixed
+				
+				#busqueda
+					
+					#contendorBotonesBusqueda
+						display block
+					
+					#contendorBusqueda
+						padding 0
+						padding-top 5px
+						
+						#contenedorItemsBusqueda
+							margin-top 5px
+					
+					#iconHide
+						display none
+
+				&~footer
+					opacity 0.1
+				
+				&~#webContent
+					opacity 0.1
+				
+			#busqueda
+				display none
+				
+				#contendorBotonesBusqueda
+					display none
+					font-size 0
+					overflow hidden
+					padding 5px 0
+
+					.auxBotonesBusqueda
+						float left
+						left 50%
+						padding 0
+						position relative
+						text-align center
+						transform translateX(-50%)
+						width 100%
+						
+						div
+							background-color white
+							border-radius 50%
+							cursor pointer
+							display inline-block
+							height 40px
+							line-height 40px
+							margin-left 40px
+							text-align center
+							vertical-align top
+							width 40px
+							
+							&:first-child
+								margin-left 0
+							
+							span
+								font-family "icomoon"
+								font-size 25px
+								text-align center
+						
+						#busquedaDocentes
+							
+							span
+								
+								&:before
+									content "\e90d"
+						
+						#busquedaEscuelas
+							
+							span
+								
+								&:before
+									content "\e921"
+									
+						#busquedaModulos
+							
+							span
+								
+								&:before
+									content "\f1b3"
+						
+						#busquedaProyectos
+							
+							span
+								
+								&:before
+									content "\e92e"
+
+						
+						.selected
+							background-color blue1
+							color #FFF
+					
+				#contendorBusqueda
+					padding 10px 0
+					position relative
+					text-align center
+					
+					#contentTxtBusqueda
+						display inline-block
+						position relative
+						width 100%
+
+						input
+							border-color transparent
+							border-radius 5px
+							background-color #EBEDF0
+							box-sizing border-box
+							height 30px
+							outline none
+							padding-left 3px
+							width 95%
+						
+						.clear
+							bottom 0
+							color gray1
+							cursor pointer
+							display none
+							font-family "icomoon"
+							font-size 10px
+							height 30px
+							line-height 30px
+							margin 0
+							position absolute
+							right 10px
+							text-align center
+							width 30px
+							z-index 10
+							
+							&:before
+								content "\ea0f"
+					
+					#contenedorItemsBusqueda
+						background-color #FFF
+						box-shadow 10px 10px 10px #ccc
+						margin-top 1px
+						position absolute
+						width 100%
+						z-index 3
+
+						p
+							border-top 1px #EEE solid
+							margin 0
+							
+							a
+								display block
+								text-align left	
+												
+								&:hover
+									text-decoration none
+									background-color lighten(blue1, 85%)
+						
+						#noHayRegitros
+							font-weight bold
+							cursor default
+							
+							p
+								margin 16px 0
+								border-color transparent
+
+						#masResultados
+							background-color #FFF
+							height 30px
+							line-height 30px
+							padding-left 10px
+							
+							span 
+								font-family "icomoon"
+								font-size 16px
+								
+								&:before
+									content "\e986"
+							
+							&:hover
+								text-decoration none
+								background-color lighten(blue1, 85%)
+						
+						.itemBusquedaPrincipal
+							background-color #FFF
+							height 46px
+							
+							a
+								max-height 46px
+								padding 3px 0
+								position relative
+							
+							span 
+								color #000
+								display inline-block
+								margin-left 5px
+								max-width calc(99% - 50px)
+								overflow hidden
+								text-overflow ellipsis
+								vertical-align middle
+								white-space nowrap
+								
+								&.extra
+									bottom 3px
+									color gray2
+									display inline-block
+									font-size 14px
+									left 45px
+									position absolute
+								
+								&.nameSchool
+									vertical-align top
+									margin-top 3px
+							
+							img
+								border-radius 8px
+								display inline-block
+								height 40px
+								margin-left 5px
+								vertical-align middle
+								width 40px
+							
+							.iconFolder,
+							.iconSchool
+								font-family "icomoon"
+								font-size 30px
+								vertical-align middle
+								color blue1
+								
+								&:before
+									display inline-block
+									height 40px
+									line-height 40px
+									text-align center
+									vertical-align middle
+									width 40px
+								
+							.iconFolder
+								
+								&:before
+									content "\e930"
+							
+							.iconSchool
+								
+								&:before
+									content "\e921"
+						
+						#loaderContenedorItemsBusqueda
+							display none
+							height 30px
+							margin 0
+							position relative
+									
+				#iconHide
+					bottom -29px
+					cursor pointer
+					height 29px
+					horizontalCenterElement()
+					// overflow hidden
+					text-align center
+					width 40px
+					
+					p
+						background-color #FFF
+						border-radius 5px
+						// box-shadow 0px 0px 5px gray
+						bottom 5px
+						color #45494F
+						display inline-block
+						font-family "icomoon"
+						font-size 20px
+						left 0
+						margin 0
+						position absolute
+						text-align center
+						width 100%
+
+						span
+							display block
+							border-radius 5px
+							
+							&:before
+								content "\e90f"
+								line-height 15px
+		
+		.ldr-global
+			background-color #E8E8E8
+			height 100%
+			left 0
+			position fixed
+			text-align center
+			top 0
+			width 100%
+			z-index 990
+			
+			.spinner
+				height 30px
+				position absolute
+				text-align center
+				width 100px
+				top 50%
+				left 50%
+				transform translateY(-50%) translateX(-50%)
+				
+				>div
+					width 30px
+					height 30px
+					background-color blue1
+					border-radius 100%
+					display inline-block
+					animation sk-bouncedelay 1.4s infinite ease-in-out both
+				
+				.bounce1
+					animation-delay -0.32s
+				
+				.bounce2
+					animation-delay -0.16s
+		
+		#loader-chat
+			background-color rgba(0,0,0,0.6)
+			display none
+			height calc(100vh - 51px)
+			position absolute
+			z-index 10
+		
+		#loader-chatMessage
+			background-color rgba(0,0,0,0.6)
+			display none
+			height 100%
+			position absolute
+			z-index 10
+		 	
+		#loader-content
+			display none
+			z-index -1
+		
+		#loader-principal
+			display none
+			
+			&.color
+				background-color rgba(#E8E8E8,0.75)
+		
+		#loader-searchPrl
+			background-color #FFF
+			border-radius 10px
+			height 100%
+			position absolute
+			z-index 10
+			
+			.spinner
+				height 15px
+				
+				.bounce1,
+				.bounce2,
+				.bounce3
+					height 15px
+					width 15px
+		
+		#loader-fltrMrRsltAux
+			background-color rgba(0,0,0,0.6)
+			border-radius 10px
+			display none
+			height 100%
+			position absolute
+			z-index 10
+			
+		.ldr-per
+			background-color rgba(0,0,0,0.6)
+			border-radius 10px
+			display none
+			height 100%
+			position absolute
+			z-index 10
+			
+			&.show
+				display block
+		
+		#menu
+			
+			nav
+
+				#menu-pc
+					background-color rgba(darkGreen,0.8)
+					color #FFF
+					display none
+					position relative
+					top 0
+					z-index 10
+					
+					&.hide
+						display none
+					
+					ul
+						/*border-top rgba(90,90,90,0.4) solid 7px*/
+						display flex
+						justify-content space-around
+						margin 0
+						padding 10px
+						padding-bottom 8px
+						padding-top 8px
+						text-align center
+						
+						li
+							background-color transparent
+							border-radius 5px !important
+							box-shadow none !important
+							cursor pointer
+							display inline-block
+							padding 0.5em
+							
+							a
+								color #FFF
+								
+								&:hover
+									text-decoration none
+							
+							&:hover
+								background-color #11ABD0
+				
+			#menu-pc-sesion
+				left -100%
+				
+				&.open
+					left 0px
+			
+		#webContent
+			margin 0 auto
+			max-width 1200px
+			padding-bottom 110px
+			
+			&.disabled
+			
+				&:before
+					content " "
+					height 100%
+					position absolute
+					width 100%
+					z-index 10
+			
+			h2
+				font-size 1.5em
+				font-weight bold
+				margin-top 0
+				margin-bottom 20px
+				text-align center
+			
+			#container-notfound
+				left 50%
+				margin 0
+				position absolute
+				text-align center
+				top 50%
+				transform translateY(-50%) translateX(-50%)
+				width 80%
+				
+				h2 
+					font-family 'Libre Baskerville', serif
+					font-size 30px
+					margin 0
+
+				img
+					width 70%
+					max-width 300px
+				
+				p
+					margin-bottom 0
+					font-size 20px
+			
+			#contentMasResultadosBusqueda
+				background-color #FFF
+				margin 0
+				min-height calc(100vh - 145px)
+				padding 20px 0
+				
+				article 
+					background-color lightness(blue1,94%)
+					border 1px solid gray1
+					box-sizing border-box
+					height 150px
+					margin-bottom 5px
+					overflow hidden
+					position relative
+					width 100%
+					
+					a
+						display block
+						height 150px
+						position relative
+						width 100%
+						z-index 5
+						
+						.image
+							font-size 0
+							verticalCenterElement()
+							
+							img
+								border-radius 8px
+								height 100px
+								margin-left 5px
+								width 100px
+							
+							.imgSchool
+								background-color #FFF
+								border-radius 8px
+								color #000
+								display block							
+								font-family "icomoon"
+								font-size 82px
+								height 100px
+								margin-left 5px
+								position relative
+								width 100px
+
+								&:before
+									content "\e921"
+									totalCenterElement()
+						
+						.info
+							color #000
+							font-size 16px
+							left 125px
+							position absolute
+							top 5px
+							
+							&.inEscuela,
+							&.inTeacher
+								width calc(100% - 130px)
+								
+								
+								.title
+									font-size 17px
+									height auto
+									max-height 40px
+									
+									span
+										-webkit-box-orient vertical
+										-webkit-line-clamp 2
+										display inline-block  //Primero
+										display -webkit-box
+										max-height 40px
+										white-space normal
+									
+							/*&.inProyecto
+								width calc(100% - 130px)
+								
+								.status
+									
+									&.curso
+										color #52bb5d
+
+									&.finalizado
+										color red
+
+									&.pendiente
+										color lightness(gray1, 50%)*/
+									
+							.description
+								display block
+								height 92px
+								overflow hidden
+								padding-right 15px
+								text-align justify
+							
+							.dots
+								font-family "icomoon"
+								height 20px
+								font-size 25px
+								horizontalCenterElement()
+								position absolute
+								text-align center
+								top 99%
+								width 100px
+								
+								&:before
+									content "\e911"
+									
+									
+							.text
+								color darkGreen
+								display block
+								height 17px
+								margin-bottom 12px
+								
+								span
+									background-color rgba(#FFF,0.7)
+									border-radius 5px
+									box-sizing border-box
+									display inline-block
+									font-size 15px
+									max-width 98%
+									overflow hidden
+									padding 1px 5px
+									text-overflow ellipsis
+									white-space nowrap
+
+							.title
+								display block
+								font-size 20px
+								font-weight bold
+								height 20px
+								margin-bottom 8px
+								max-width 98%
+								
+								span
+									display inline-block
+									max-width 98%
+									overflow hidden
+									text-overflow ellipsis
+									white-space nowrap
+
+					.background
+						-webkit-filter blur(15px)
+						background-position center center
+						filter blur(15px)
+						height 110%
+						left -5%
+						position absolute
+						top -5%
+						transform scale(2.0,2.0)
+						width 110%
+						z-index 3
+						
+						&:before
+							background-color #FFF
+							content " "
+							height 110%
+							left -5%
+							opacity 0.7
+							position absolute
+							top -5%
+							width 110%
+					
+					.backgroundSchool
+						-webkit-filter blur(15px)
+						filter blur(10px)
+						height 110%
+						position absolute
+						width 100%
+						
+						&:before
+							content "\e921"
+							font-family "icomoon"
+							font-size 170px
+							opacity 0.2
+							totalCenterElement()
+							left 60% //Después
+							
+				#obtenerMasResultados
+					margin 30px 0
+					text-align center
+					
+					div
+						background-color rgba(255,255,255,0.7)
+						border solid 3px blue1
+						border-radius 10px
+						cursor pointer
+						display inline-block
+						padding 10px
+						
+						span 
+							display block
+				
+				.sin-resultados-bus
+					color gray2
+					font-size 18px
+					margin-top 20px
+					text-align center
+					
+					p
+						margin 0
+						
+						span 
+							color #000
+						
+						.bold
+							font-weight bold
+						
+						.italic
+							font-style italic
+			
+			#slider-principal
+				margin-top -50px
+				padding 0
+				position relative
+				z-index 0
+				
+				#sliderBackground
+					display none
+				
+				.rslides
+					height 100vh
+					width 100vw
+					list-style none
+					margin 0
+					overflow hidden
+					padding 0
+					position relative
+					
+					li 
+						left 0
+						opacity 0
+						position absolute
+						top 0
+						width 100%
+						z-index 0
+						
+						&.show 
+							display block
+							z-index 3
+						
+						.img
+							background-position center
+							background-repeat no-repeat
+							background-size cover
+							height 300px
+							
+			.bootstrap-table
+				overflow hidden
+				
+				.fixed-table-container
+					/*box-shadow 1px 1px 5px #CCC, -1px -1px 5px #CCC*/
+						
+					.tblContent
+						
+						tr
+							&:hover
+								background-color lightness(blue1,90%) !important
+							
+							// &:nth-child(odd)
+							// 	background-color lightness(blue1,98%)
+						
+							// &:nth-child(even)
+							// 	background-color lightness(orange1,98%)
+							
+							th
+								background-color #FFF
+
+							.fht-cell
+								position relative
+								top 4px
+
+							.th-inner
+								padding 5px 8px 12px 8px
+								text-align center
+								position relative
+								top 5px
+					
+					.fixed-table-body
+						
+						table
+							
+							tbody
+								
+								tr
+									td
+										padding 8px
+										// border-top 1px solid #ddd
+							
+						
+						.tableSearch
+							
+							tbody
+								
+								tr
+									cursor pointer
+							
+							thead
+								
+								tr
+									th
+										background-color #FFF
+										
+										.fht-cell
+											position relative
+											top 4px
+
+										.th-inner
+											padding 0 8px
+											text-align center
+											position relative
+											top 5px
+					
+					.fixed-table-pagination
+						
+						.btn
+							-moz-user-select none
+							-ms-touch-action manipulation
+							-ms-user-select none
+							-webkit-user-select none
+							background-image none
+							border 1px solid transparent
+							border-radius 4px
+							cursor pointer
+							display inline-block
+							font-size 14px
+							font-weight normal
+							line-height 1.42857143
+							margin-bottom 0
+							padding 6px 12px
+							text-align center
+							touch-action manipulation
+							user-select none
+							vertical-align middle
+							white-space nowrap
+							
+							&:hover
+								background-color #F6F6F6
+						
+						.btn-default
+							color #333
+							background-color #fff
+							border-color #ccc
+						
+						.dropdown-menu
+							-webkit-background-clip padding-box
+							-webkit-box-shadow 0 6px 12px rgba(0, 0, 0, .175)
+							background-clip padding-box
+							background-color #fff
+							border 1px solid #ccc
+							border 1px solid rgba(0, 0, 0, .15)
+							border-radius 4px
+							bottom 100%
+							box-shadow 0 6px 12px rgba(0, 0, 0, .175)
+							display none
+							float left
+							font-size 14px
+							left 0
+							list-style none
+							margin 2px 0 0
+							min-width 160px
+							padding 5px 0
+							position absolute
+							text-align left
+							z-index 1000
+							
+							li
+								a
+									display block
+									padding 3px 20px
+									clear both
+									font-weight 400
+									line-height 1.42857143
+									color #333
+									white-space nowrap
+									
+									&:hover
+										background-color blue1
+										color #FFF
+										text-decoration none
+						
+						.open
+							
+							>.dropdown-menu
+								display block
+						
+						.pagination
+							display inline-block
+							padding-left 0
+							margin 0
+							margin-top 10px
+							border-radius 4px
+							
+							li
+								display inline
+								
+								&:hover
+									
+									a	
+										background-color #F6F6F6
+									
+								a,
+								span
+									position relative
+									float left
+									padding 6px 12px
+									margin-left -1px
+									line-height 1.42857143
+									color #000
+									text-decoration none
+									background-color #fff
+									border 1px solid #ddd
+									
+						
+								&.active
+									
+									a
+										color #FFF
+										background-color blue1
+								
+								&.disabled
+									
+									a
+										display none
+						
+						.pagination-detail
+							margin 0
+							margin-top 20px
+							
+						
+						.pull-left
+							float left !important
+						
+						.pull-right
+							float right !important
+
+				.fixed-table-toolbar
+					
+					.dropdown-toggle
+						box-shadow 1px 1px 5px #CCC, -1px -1px 5px #CCC
+				
+				.glyphicon
+					font-family "icomoon"
+					font-style normal
+
+				.glyphicon-plus-sign
+
+					&:before
+						content "\ea0a"
+				
+				.glyphicon-remove-sign
+					
+					&:before
+						content "\ea0f"
+			
+			.contenedor-chats
+				background-color #FFF
+				margin 0
+				min-height calc(100vh - 50px)
+				position relative
+				width 100%
+				font-size 0
+				
+				&.onlyChats
+					
+					.mensajes
+						display none
+				
+				&.onlyMensajes
+					
+					.chats
+						display none
+				
+				.chats,
+				.mensajes
+					font-size 16px
+					position relative
+				
+				.chats
+					display inline-block
+					margin 5px 0
+					vertical-align top
+					width 100%
+					
+					article
+						background-color lightness(blue1,97%)
+						border-bottom 1px solid #ccc
+						border-top 1px solid #ccc
+						cursor pointer
+						height 100px
+						margin 4px 0
+						position relative
+						width 100%
+						
+						&:first-child
+							margin-top 0
+						
+						&:last-child
+							margin-bottom 0
+						
+						&.nuevo
+							background-color  lightness(blue1,87%)
+							
+							.informacion
+								
+								p
+									margin 6px 0
+								
+								.cantidad
+									display block
+						
+						&.seleccionado
+							background-color blue1
+							box-shadow -5px 0px 10px #FFF inset
+							
+							.informacion
+								
+								p
+									color #FFF !important
+						
+						.imagen
+							height 100px
+							left 0
+							position absolute
+							top 0
+							width 20%
+							
+							img
+								border 1px solid #ccc
+								border-radius 50%
+								height 50px
+								totalCenterElement()
+								width 50px
+							
+						.informacion
+							height 100px
+							position absolute
+							right 0
+							top 0
+							width 80%
+							
+							p
+								height 18px
+								margin 12px 0
+								
+								&.fecha
+									color gray2
+									text-align center
+								
+								&.mensaje
+									color gray2
+									max-height 18px
+									overflow hidden
+									text-overflow ellipsis
+									white-space nowrap
+								
+								&.nombre
+									font-weight bold
+																
+							.cantidad
+								display none
+								text-align center
+								
+								span
+									background-color blue1
+									border-radius 10px
+									color #FFF
+									font-size 14px
+									margin-right 5px
+									padding 2px 4px
+									
+				.mensajes
+					background-color #FFF
+					margin 0
+					position relative
+					vertical-align top
+					width 100%
+					
+					&.loading
+						
+						#loader-chat
+							display block
+					
+					.contInt
+						//height calc(100vh - 160px) //footer 134px -> 160px
+						//min-height 100vh
+						background-color white
+						padding 30px 0 80px 0
+						width 100%
+						
+						p
+							border-radius 10px
+							display inline-block
+							margin 0
+							max-width 80%
+							padding 8px 10px
+							//padding-bottom 20px
+							position relative
+							text-align left
+							min-width 20%
+							
+							.hora,
+							.texto
+								display block
+								
+							.hora
+								top calc(100% - 1px)
+								font-size 14px
+								position absolute
+								right 6px
+						
+						.day
+							border-top solid 1px #e8e8e8
+							height 14px
+							text-align center
+							margin 45px 0 0 0
+
+							p
+								background-color #FFF
+								color #bec2c9
+								margin 0
+								min-width 10px
+								padding 0 7px 0 7px
+								position relative
+								text-align center
+								top -10px
+								
+								
+						.env
+							margin-top 20px
+							text-align right
+							
+							p
+								color #FFF
+								margin-right 10px
+								background-color blue1
+								
+								.hora
+									color blue1
+						
+						.rec
+							margin-top 20px
+							text-align left
+							
+							p
+								margin-left 10px
+								background-color #DDD
+								
+								.hora
+									color gray2
+					.header,
+					.footer 
+						border-bottom 1px #DDD solid
+						border-top 1px #DDD solid
+						left 0
+						opacity 0.9
+						position fixed
+						width 100%
+						z-index 5
+						
+					.footer
+						background-color #FFF
+						bottom 0
+						min-height 60px
+						position fixed
+						
+						&.loading
+						
+							#loader-chatMessage
+								display block
+
+						.message
+							border none
+							left 0
+							min-height 60px
+							outline none
+							padding 5px
+							position absolute
+							box-sizing border-box
+							resize none
+							top 0
+							width calc(100% - 53px)
+						
+						.sendButton
+							background-color blue1
+							border-radius 50%
+							color #FFF
+							font-family "icomoon"
+							font-size 25px
+							height 40px
+							position absolute
+							right 3px
+							cursor pointer
+							text-align center
+							verticalCenterElement()
+							width 40px
+							
+							&:before
+								content "\e914"
+								line-height 40px
+
+						
+					.header
+						background-color lightness(blue1,97%)
+						height 43px
+						top 50px
+						
+						img
+							border 1px solid #ccc
+							border-radius 50%
+							cursor pointer
+							height 35px
+							position absolute
+							right 10px
+							verticalCenterElement()
+							width 35px
+						
+						.return
+							color blue1
+							cursor pointer
+							font-size 20px
+							font-weight bold
+							height 25px
+							verticalCenterElement()
+							width 25px
+							
+							&:before
+								content "\e905"
+								totalCenterElement()
+								font-family "icomoon"
+						
+						.usuario
+							cursor default
+							max-width 70%
+							totalCenterElement()
+							left 47% //En este orden
+							
+							.hora,
+							.nombre
+								display block
+								text-align center
+								
+							.hora
+								font-size 14px
+								color gray2
+
+							.nombre
+								cursor pointer
+								font-weight bold
+								margin-bottom 2px
+								max-height 18px
+								overflow hidden
+								text-overflow ellipsis
+								white-space nowrap
+								
+								&:hover
+									text-decoration underline
+
+					.noSelected
+						background-color rgba(#DDD,0.1)
+						height calc(100vh - 51px)
+						left 0
+						position absolute
+						top 0
+						width 100%
+						
+						.note
+							font-size 24px
+							margin 0
+							text-align center
+							totalCenterElement()
+							width 90%
+							
+								
+			.cntPtdMuro
+				margin-bottom 20px
+				
+				&.empty
+					margin-bottom 40px
+					
+					.proyectos,
+					.modulos
+						display none
+					
+					.sin-resultados
+						display block
+				
+				h2
+					margin-top 1em
+
+				.proyectos,
+				.modulos
+					font-size 0
+					position relative
+					text-align center
+					
+					article 
+						border #AAA solid 2px
+						border-radius 15px
+						display inline-block
+						font-size 16px
+						height 300px
+						margin-bottom 40px
+						min-height 300px
+						position relative
+						text-align center
+						width 95%
+						
+						a
+							display block
+							
+							&:hover
+								text-decoration none
+
+						h2
+							background-color rgba(#FFF,0.7)
+							border-bottom blue1 groove 2px
+							border-top-left-radius 10px
+							border-top-right-radius 10px
+							margin 0 0 10px 0
+							overflow hidden
+							padding 5px 3px
+							position relative
+							text-overflow ellipsis
+							white-space nowrap
+							z-index 3
+						
+						
+						.descripcion
+							max-height 135px
+							overflow hidden
+							padding 0.5em
+							position relative
+							text-align justify
+							z-index 3
+							
+						.imagen
+							background-color #FFF
+							height 300px
+							position absolute
+							top 0
+
+							img 
+								-webkit-filter blur(5px)
+								filter blur(5px)
+								height 300px
+								left 0
+								position absolute
+								top 0
+								width 100%
+								z-index 1
+							
+							.fondo
+								background-color rgba(#FFF,0.75)
+								height 100%
+								left 0
+								position absolute
+								top 0
+								width 100%
+								z-index 2
+								border-radius 10px
+						
+						.informacion
+							background-color rgba(#FFF,0.8)
+							border-bottom-left-radius 10px
+							border-bottom-right-radius 10px
+							border-top blue1 groove 2px
+							bottom 0px
+							box-sizing border-box
+							padding 5px 20px
+							padding-top 5px
+							position absolute
+							width 100%
+							z-index 3
+							
+							p
+								display none
+							
+							.convocatoria, .participantes
+								border-radius 4px
+								padding 2px 5px
+								
+							.convocatoria
+								float left
+								min-width 30px
+								color orange1
+								
+							.participantes
+								background blue1
+								color #FFF
+								float right
+								min-width 30px
+								
+						.botones
+							bottom 50px
+							position absolute
+							width 100%
+							z-index 3
+						
+							.unirse-proyecto, .ver-proyecto,
+							.unirse-modulo, .ver-modulo
+								display inline-block
+								height 40px
+								line-height 40px
+								width 70px
+								
+								&:nth-child(1)
+									margin-right 20px
+								
+								&:nth-child(2)
+									margin-left 20px
+								
+							.unirse-modulo, .ver-modulo
+								width 90px
+								
+							.ver-proyecto,
+							.ver-modulo
+								
+								a
+									color #FFF
+					
+					.slctPrtMuro
+						position relative
+						cursor pointer
+						
+						>a
+							height 300px
+						
+						h2
+						
+							a 
+								display inline-block
+								color #000
+								
+								&:hover
+									text-decoration underline
+						
+						p
+							margin 15px 0
+							text-align center
+						
+						.tblDocRelMuro
+							margin auto
+							width 95%
+							
+							thead
+								
+								tr
+									th
+										padding-bottom 5px
+										border-bottom 1px solid #EEE
+										text-align center
+							tbody
+								
+								tr
+									cursor pointer
+									text-align left
+									
+									td
+										padding-left 5px
+									
+									&:hover
+										background-color blue1
+										color #FFF
+						
+						.imagen
+							border-radius 10px
+							display block
+							height 300px
+							width 100%
+									
+						.infMisMuros
+							background-color #FFF
+							border-bottom blue1 groove 2px
+							border-radius 8px
+							cursor auto
+							display none
+							height 258px
+							overflow hidden
+							position absolute
+							text-align left
+							top 40px
+							width 100%
+							z-index 2
+							
+							.rtnDocRelMuro
+								color blue1
+								cursor pointer
+								font-size 20px
+								font-weight bold
+								left 10px
+								position absolute
+								bottom 5px
+								
+								&:before
+									content "\e905"
+									font-family "icomoon"
+					
+				.sin-resultados
+					display none
+									
+			.cntDcMuro
+				position relative
+				
+				.cntMuroLft
+					margin 20px auto
+					width 100%
+					
+					.cntPubMuro
+						
+						.dvPgncn
+							margin 30px 0
+							text-align center
+							
+							&.divPaginacionComentarios
+								margin 0
+								
+								.cntDiPag
+									padding 3px 10px
+									
+									span
+										display inline-block
+										margin-left 5px
+							
+							.cntDiPag
+								background-color rgba(255,255,255,0.7)
+								border solid 3px blue1
+								border-radius 10px
+								cursor pointer
+								display inline-block
+								padding 10px
+								
+								span 
+									display block
+						
+						.emptyMuro
+							background-color rgba(255,255,240,0.7)
+							border 1px dashed #AAA
+							font-size 18px
+							height 50px
+							line-height 50px
+							margin 50px auto
+							text-align center
+							width 80%
+						
+						.publicacion-proyecto
+							border-radius 15px
+							margin 20px 0
+							position relative
+							
+							&:last-child
+								
+								&:first-child
+									margin-bottom 0
+								
+								&:not(:first-child)
+									margin 0
+							
+							&.publicacion-proyecto-gestion
+								
+								.headerPublicacion
+									border-radius 0
+								
+								.loader-section
+									border-radius 10px
+							
+							&.pubHide
+								display none !important
+							
+							.headerPublicacion
+								background-color rgba(255,255,255,0.8)
+								border-top-left-radius 10px
+								border-top-right-radius 10px
+								padding-top 8px
+								
+								img
+									border-radius 50%
+									margin-left 8px
+									height 50px
+									vertical-align top
+									width 50px
+								
+								.nombreFechaPublicacion
+									display inline-block
+									height 50px
+									position relative
+									width calc(100% - 65px)
+									margin-left 5px
+									
+									p
+										left 0
+										margin 0
+										position absolute
+										
+										&:first-child
+											
+											a
+												font-weight bold
+												top 4px
+												
+												&:last-child
+													display none
+												
+												&:hover
+													text-decoration underline
+										
+										&:nth-child(2)
+											color gray1
+											bottom 10px
+							
+							.containerArchivosPublicacion
+								background-color rgba(255,255,255,0.8)
+								// margin 1px 0
+								max-height 200px
+								overflow auto
+								padding 10px
+									
+								.archivoPublicacion
+									margin-bottom 10px
+									
+									&:last-child
+										margin 0
+									
+									p
+										cursor pointer
+										display inline-block
+										height 20px
+										margin 0
+										padding-left 25px
+										position relative
+										
+										a
+											position relative
+											top 2px
+										
+										&:before
+											content "\e925"
+											cursor auto
+											font-family "icomoon"
+											font-size 20px
+											left 0
+											position absolute
+											top 0
+									
+							.containerEnlacesYoutubePublicacion
+								background-color rgba(255,255,255,0.8)
+								height 162px
+								// margin 1px 0
+								overflow-x auto
+								overflow-y hidden
+								padding 10px
+								white-space nowrap
+								
+								.youtubePublicacion
+									background-color #000
+									border solid 1px rgba(0,0,0,0.5)
+									border-radius 8px
+									display inline-block
+									height 162px
+									margin-right 10px
+									overflow hidden
+									position relative
+									vertical-align top
+									width 162px
+									
+									iframe
+										border none
+										margin 1px
+										border-radius 8px
+										height 160px
+										overflow hidden
+										width 160px
+									
+									.cover-youtube
+										cursor pointer
+										height 162px
+										left 0
+										position absolute
+										top 0
+										width 162px
+										
+										&:hover
+											background-color rgba(#FFF,0.5)
+									
+							.containerImagenesPublicacion
+								background-color rgba(255,255,255,0.8)
+								height 162px
+								// margin 1px 0
+								overflow-x auto
+								overflow-y hidden
+								padding 10px
+								white-space nowrap
+								
+								.fotoPublicacion
+									display inline-block
+									height 162px
+									margin-right 10px
+									position relative
+									width 162px
+									
+									&:last-child
+										margin 0
+									
+									.imgPbMuro
+										// border solid 1px rgba(0,0,0,0.5)
+										border-radius 8px
+										cursor pointer
+										height 160px
+										transition all 0.2s
+										width 160px
+										
+							.contenedorComentariosPublicaciones
+								background-color rgba(#FFF,0.1)
+								border-bottom-left-radius 10px
+								border-bottom-right-radius 10px
+								display none
+								overflow hidden
+								
+								.comentarioPublicado
+									position relative
+									background-color rgba(#f6f7f8,0.8)
+									margin-bottom 1px
+									padding-top 8px
+									
+									&.last
+										border-bottom-left-radius 10px
+										border-bottom-right-radius 10px
+
+									div
+										position relative
+										
+										img
+											margin-left 5px
+											height 35px
+											width 35px
+											border-radius 50%
+									
+									p
+										display inline-block
+										left 45px
+										margin 0
+										margin-top 3px
+										position absolute
+										
+										&:nth-child(2)
+											top -4px
+											
+											a
+												color #1996b3
+												cursor pointer
+												font-weight bold
+												
+												&:hover
+													text-decoration underline
+													
+											.nombreCompleto
+												display none
+											
+											.nombreIniciales
+												display block
+										
+										&:nth-child(3)
+											color gray1
+											top 15px
+									
+									.divComentarioPublicado
+										padding 10px
+										word-wrap break-word
+										
+										a
+											color #1996b3
+											cursor pointer
+											
+											&:hover
+												text-decoration underline
+											
+									.opcionesComentario
+										height 22px
+										position absolute
+										right 3px
+										top 2px
+										width 100px
+										
+										span
+											color gray1
+											position absolute
+											top 0px
+										
+											&:before
+												cursor pointer
+												font-family "icomoon"
+											
+											&.editarComentario
+												right 28px
+											
+												&:before
+													content "\e907"
+												
+												&:hover
+													
+													&:before
+														color #4285f4
+											
+											&.eliminarComentario
+												right 5px
+												
+												&:before
+													content "\e904"
+												
+												&:hover
+													
+													&:before
+														color #d73d32
+
+								.contenedorPublicarComentario
+									background-color rgba(#f6f7f8,0.8)
+									margin 1px 0
+									padding 10px 0
+									
+									div
+										text-align center
+										margin-top 10px
+									
+										.btnCancelarComentario,
+										.btnComentar,
+										.btnModificarComentario
+											font-size 14px
+											height 35px
+											line-height 35px
+											margin 0
+											width 73px
+											
+									img
+										border-radius 50%
+										height 35px
+										vertical-align middle
+										width 35px
+										margin 0 5px 0 3px
+									
+									textarea 
+										background-color rgba(255,255,255,0.3)
+										border solid 1px #e8e8e8
+										border-color #dcdee3
+										height 35px
+										outline none
+										resize none
+										vertical-align middle
+										width calc(100% - 55px)
+										
+									&.contenedorModificarComentario
+										border-bottom solid 1px #e8e8e8
+										
+										div
+											
+											.btnCancelarComentario
+												margin-left 10px
+
+											.btnComentar
+												margin-right 10px
+										
+									&+.comentarioPublicado
+										border-top solid 1px #e8e8e8
+								
+								.lblContenedorPaginacionComentarios
+									padding 8px 0
+									position relative
+									
+									.loader-section
+										border-top-right-radius 0
+										border-top-left-radius 0
+
+									.spinner
+										height 15px
+
+									.bounce1,
+									.bounce2,
+									.bounce3
+										height 15px
+										width 15px
+												
+							.infoPublicacion
+								background-color rgba(255,255,255,0.8)
+								height 28px
+								// margin-top 1px
+								position relative
+								border-bottom-left-radius 10px
+								border-bottom-right-radius 10px
+								
+								.loader-section
+									border-radius 0
+									
+									.spinner
+										height 15px
+									
+									.bounce1,
+									.bounce2,
+									.bounce3
+										height 15px
+										width 15px
+
+								
+								.infoContentPublicacion
+									position absolute
+									right 9px
+									top 7px
+
+									span
+										color gray1
+										cursor pointer 
+										
+										span 
+											margin-left 3px
+											
+										&:before
+											font-family "icomoon"
+											font-size 16px
+										
+										&:hover
+											color #111
+											
+											span 
+												color #111
+									
+									.comentariosPub
+										position relative
+										top -5px
+										margin-right 10px
+										
+										span 
+											position relative
+											top -1px
+											left 2px
+										
+										&:before
+											content "\e908"
+											font-size 19px
+									
+									.likesPub
+										position relative
+										top -1px
+										right 1px
+										
+										&:before
+											top 0
+											left 3px
+
+									.likesPublicaciones
+										position relative
+										top -6px
+										
+										&:hover
+											color gray1
+							
+							.opcionesPublicacion
+								background-color rgba(255,255,255,0.8)
+								border-top-left-radius 10px
+								border-top-right-radius 10px
+								height 25px
+								margin-bottom 1px
+								
+								span
+									color gray1
+									position absolute
+									top 5px
+									
+									&:before
+										cursor pointer
+										font-family "icomoon"
+									
+									&.editarPublicacion
+										right 45px
+									
+										&:before
+											content "\e907"
+										
+										&:hover
+											
+											&:before
+												color #4285f4
+									
+									&.eliminarPublicacion
+										right 13px
+										
+										&:before
+											content "\e904"
+										
+										&:hover
+											
+											&:before
+												color #d73d32
+							
+							.textoPublicacion
+								background-color rgba(255,255,255,0.8)
+								
+								.contenido-publicacion
+									margin 0
+									padding 10px 10px 15px 10px
+									word-break break-word
+									
+									a
+										color #1996b3
+										
+										&:hover
+											text-decoration underline
+				
+					.icon-likes
+						display inline-block
+						height 20px
+						margin-right 0px
+						position relative
+						top 4px
+						width 22px
+						
+						&:after
+							background-color #000
+							border 1px lightness(gray1, 80%) solid
+							border-radius 5px
+							color #FFF
+							content "Me gusta"
+							display none
+							font-size 14px
+							height 28px
+							left -25px
+							line-height 26px
+							position absolute
+							text-align center
+							top -30px
+							width 65px
+							z-index 5
+								
+						&:before
+							bottom 8px
+							color lightness(gray1, 70%)
+							content '\e900'
+							cursor pointer
+							font-family 'icomoon' 
+							font-size 18px
+							height 18px
+							left 1px
+							position absolute
+							transition all 0.2s
+							
+						&.liked
+							
+							&:after
+								content "Ya no me gusta"
+								left -40px
+								width 100px
+								
+							&:before
+								color red
+								text-shadow 1px 1px 1px #000
+						
+					.likes
+						position relative
+						top 1px
+						margin-right 7px
+						vertical-align middle
+
+					.ptdDcMuro
+						background-color #FFF
+						border-radius 5px
+						height 371px
+						position relative
+						z-index 3
+						
+						.hdDcMuro
+							background-color rgba(255,255,255,0.9)
+							// border-bottom rgba(#CCC,0.4) solid 1px
+							border-top-left-radius 5px
+							border-top-right-radius 5px
+							overflow hidden
+							position relative
+							z-index 3
+							
+							h2
+								display inline-block
+								float left
+								margin 3px 10px
+								text-align left
+							
+							.extLink
+								
+								span
+									cursor pointer
+									font-family "icomoon"
+									font-size 20px
+									position absolute
+									right 10px
+									top 10px
+									
+									&:hover
+										
+										&:before
+											color #000
+
+									&:before
+										color #595959
+										content "\e913"
+
+						.bckDcMuro
+							height 300px
+							position relative
+							z-index 2
+							
+							.bckBtt
+								bottom 3px
+								height 36px
+								left 0
+								position absolute
+								width 100%
+								
+							.bckTop
+								height 35px
+								position absolute
+								top 0
+								width 100%
+							
+								.estatus
+									background-color #FFF
+									// border 1px rgba(#000,0.1) solid
+									border-radius 10px
+									color lightness(gray1, 35%)
+									float right
+									margin 0
+									margin-right 6px
+									margin-top 5px
+									padding 3px 5px
+									
+									.pendiente
+										color lightness(gray1, 50%)
+									
+									.curso
+										color #52bb5d
+									
+									.finalizado
+										color red
+						
+						.fndMuro
+							left 0
+							position absolute
+							top 0
+							width 100%
+							z-index 1
+									
+							.imgPtd
+								background-position center center
+								background-size cover
+								border-radius 5px
+								height 371px
+								width 100%
+							
+						.icSocMuro
+							background-color #FFF
+							border 1px rgba(#000,0.1) solid
+							border-radius 50%
+							bottom 5px
+							cursor pointer
+							height 26px
+							line-height 26px
+							position absolute
+							text-align center
+							width 26px
+									
+							&:after
+								background-color #000
+								border 1px lightness(gray1, 80%) solid
+								border-radius 5px
+								bottom 27px
+								color #FFF
+								display none
+								font-size 14px
+								height 28px
+								line-height 26px
+								position absolute
+								position absolute
+								text-align center
+								z-index 5
+							
+							&:before
+								color lightness(gray1, 35%)
+								font-family 'icomoon' 
+								text-shadow 1px 1px 1px #FFF
+							
+							&:hover
+								
+								&:before
+									color #000
+						
+						.codigoQrMuro
+							right 76px
+								
+							&:after
+								content "Código QR"
+								left -28px
+								width 80px
+							
+							&:before
+								content '\e938'
+								font-size 16px
+						
+						.infoMuro
+							right 10px
+							
+							&:after
+								content "Información"
+								left -30px
+								width 80px
+							
+							&:before
+								content '\e901'
+								font-size 17px
+						
+						.relacionadosMuro
+							right 43px
+							
+							&:after
+								content "Relacionados"
+								left -30px
+								width 87px
+								
+							&:before
+								content '\e902'
+								font-size 17px
+						
+						.whatsAppMuro
+							right 109px
+							
+							&:after
+								content "WhatsApp"
+								left -20px
+								width 70px
+								bottom 25px
+								
+							&:before
+								content '\e903'
+								font-size 20px
+								
+						.infDcMuro
+							background-color rgba(255,255,255,0.9)
+							// border-top rgba(#CCC,0.4) solid 1px
+							border-bottom-left-radius 5px
+							border-bottom-right-radius 5px
+							bottom 0
+							height 36px
+							position absolute
+							width 100%
+							z-index 3
+							
+							.infDc
+								height 36px
+								position absolute
+								width 68%
+							
+								img
+									background-color rgba(255,255,255,0.9)
+									// border 1px lightness(gray1, 80%) solid
+									border-radius 10px
+									bottom 2px
+									display inline-block
+									height 100px
+									margin-left 3px
+									position absolute
+									width 100px
+								
+								a
+									color #1996b3
+									display block
+									font-weight bold
+									overflow hidden
+									text-overflow ellipsis
+									white-space nowrap
+									width 100%
+									
+									&:hover
+										text-decoration underline
+								
+								.nombre-completo,
+								.nombre-inciales
+									left 110px
+									position absolute
+									top 8px
+									width calc(100% - 60px)
+									
+								.nombre-completo
+									display none
+									
+							.infMuro
+								height 36px
+								line-height 36px
+								position absolute
+								right 0
+								text-align right
+								width 30%
+								
+								a
+								
+									&:hover
+										text-decoration none
+								
+								.icSocMuro
+									background-color transparent
+									border none
+									bottom -4px
+									display none
+									position relative
+									right 0
+									
+								.codigoQrMuro
+									left 7px
+
+								.infoMuro
+									left 0px
+
+								.relacionadosMuro
+									left 4px
+								
+								.whatsAppMuro
+									left 10px
+						
+					.publicarPost
+						background-color rgba(#f5f5f5,0.7)
+						border 1px solid rgba(#d8d8d8,0.2)
+						border-radius 5px
+						margin 20px 0
+						padding-bottom 15px
+						position relative
+						
+						&.modificarPost
+							margin-top 40px
+							
+							h4
+								margin 5px
+								text-align center
+							
+							.botones
+								
+								div
+								
+									&:first-child
+										margin-right 30px
+										
+									&:last-child
+										margin-left 30px
+						
+						.archivosPublicacion
+							background-color rgba(255,255,255,0.5)
+							display none
+							padding-bottom 10px
+							
+							.botonesArchivosPost
+								text-align center
+								
+								.agregarArchivoPost
+								.eliminarArchivoPost
+									background-color #f5f5f5
+									cursor pointer
+									display inline-block
+									padding 10px
+									border solid 1px #d8d8d8
+									
+									&:hover
+										text-decoration underline
+								
+								.agregarArchivoPost
+									margin-right 5px
+								
+								.eliminarArchivoPost
+									margin-left 5px
+							
+							.contenedorArchivosPost
+								margin 10px 0 15px 0
+								max-height 300px
+								overflow auto
+								padding-top 8px
+
+								.archivoPost
+									position relative
+									
+									p
+										cursor pointer
+										display inline-block
+										padding-left 30px
+										position relative
+										
+										span
+											
+											&:nth-child(1)
+												background-color rgba(#d4122d,0.75)
+												border-radius 50%
+												color #FFF
+												display none
+												font-size 12px
+												height 15px
+												left 0
+												line-height 15px
+												position absolute
+												text-align center
+												top -3px
+												width 15px
+												
+												&:hover
+													background rgba(#d4122d,1)
+												
+											&:nth-child(2)
+												
+												&:hover
+													text-decoration underline
+											
+										&:before
+											content "\e925"
+											cursor auto
+											font-family "icomoon"
+											font-size 20px
+											left 5px
+											position absolute
+											top 0
+								
+								.archivo-loader
+									border-radius 50%
+									display block
+									height 32px
+									margin-left 5px
+									position relative
+									vertical-align middle
+
+									&:before,
+									&:after
+										animation sk-bounce 2.0s infinite ease-in-out
+										background-color blue1
+										border-radius 50%
+										content " "
+										height 20px
+										left 0
+										line-height 20px
+										opacity 0.6
+										position absolute
+										top calc(50% - 10px)
+										width 20px
+										z-index 100
+
+									&:after
+										animation-delay -1.0s
+										
+									span
+										line-height 32px
+										margin-left 25px
+											
+						.imagenesPublicacion
+							background-color rgba(255,255,255,0.5)
+							display none
+							padding-bottom 10px
+							
+							.botonesImagenesPost
+								text-align center
+								
+								.agregarImagenPost,
+								.eliminarImagenPost
+									background-color #f5f5f5
+									cursor pointer
+									display inline-block
+									padding 10px
+									border solid 1px #d8d8d8
+									
+									&:hover
+										text-decoration underline
+								
+								.agregarImagenPost
+									margin-right 5px
+								
+								.eliminarImagenPost
+									margin-left 5px
+							
+							.contenedorImagenesPost
+								height 135px
+								margin 10px 0
+								overflow-x auto
+								overflow-y hidden
+								padding 10px
+								white-space nowrap
+								width 100%
+
+								.imagen-loader
+									border solid 1px rgba(0,0,0,0.5)
+									border-radius 8px
+									display inline-block
+									height 100px
+									margin-right 5px
+									position relative
+									width 100px
+									vertical-align top
+
+									&:before,
+									&:after
+										animation sk-bounce 2.0s infinite ease-in-out
+										background-color blue1
+										border-radius 50%
+										content " "
+										height 60px
+										left calc(50% - 30px)
+										opacity 0.6
+										position absolute
+										top calc(50% - 30px)
+										width 60px
+										z-index 100
+
+									&:after
+										animation-delay -1.0s
+
+								.imagenPost
+									display inline-block
+									height 120px
+									margin-right 5px
+									position relative
+									vertical-align top
+									
+									
+									span:first-child 
+										background rgba(#d4122d,0.75)
+										border-radius 50%
+										color #FFF
+										cursor pointer
+										display none
+										height 25px
+										line-height 25px
+										position absolute
+										right -5px
+										text-align center
+										top -5px
+										width 25px
+										z-index 3
+										
+										&:hover
+											background rgba(#d4122d,1)
+									
+									span:last-child
+										background-color #FFF
+										border solid 1px rgba(0,0,0,0.5)
+										border-radius 5px
+										bottom 0
+										color blue1
+										cursor pointer
+										left 50%
+										padding 0 3px
+										position absolute
+										transform translateX(-50%)
+										transition all 0.2s
+									
+									img
+										border solid 1px rgba(0,0,0,0.5)
+										border-radius 8px
+										cursor pointer
+										height 100px
+										width 100px
+										transition all 0.2s
+										
+						.linksPublicacion
+							background-color rgba(255,255,255,0.5)
+							display none
+							padding-bottom 10px
+							
+							.botonesLinksPost
+								text-align center
+								
+								.agregarLinkPost,
+								.eliminarLinkPost
+									background-color #f5f5f5
+									cursor pointer
+									display inline-block
+									padding 10px
+									border solid 1px #d8d8d8
+									
+									&:hover
+										text-decoration underline
+								
+								.agregarLinkPost
+									margin-right 5px
+								
+								.eliminarLinkPost
+									margin-left 5px
+							
+							.contenedorLinksPost
+								height 190px
+								margin 10px 0
+								overflow-x auto
+								overflow-y hidden
+								padding 10px
+								white-space nowrap
+								width 100%
+									
+								.linkPost
+									display inline-block
+									height 170px
+									margin-right 10px
+									position relative
+									vertical-align top
+									
+									div
+										background #000
+										border solid 1px rgba(0,0,0,0.5)
+										border-radius 8px
+										height 170px
+										overflow hidden
+										width 170px
+										
+										iframe
+											border none
+											margin 1px
+											border-radius 8px
+											height 166px
+											overflow hidden
+											width 166px
+										
+									>span
+										background rgba(#d4122d,0.75)
+										border-radius 50%
+										color #FFF
+										cursor pointer
+										display none
+										height 25px
+										line-height 25px
+										position absolute
+										right -5px
+										text-align center
+										top -5px
+										width 25px
+										z-index 3
+
+										&:hover
+											background rgba(#d4122d,1)
+										
+						.publicacion-archivo,
+						.publicacion-imagen
+							display none
+						
+						.botones
+							margin-top 25px
+							text-align center
+							
+						.opciones
+							margin-top 20px
+							font-family "icomoon"
+							text-align center
+							
+							span
+								display inline-block
+								text-align center
+								cursor pointer
+								margin-right 7%
+								
+								&:before
+									font-size 20px
+									display block
+									margin-bottom 10px
+								
+								&:last-child
+									margin-right 0
+							
+							.texto
+								
+								&:before
+									content "\e906"
+								
+								&:hover
+									
+									&:before
+										color #4285f4
+							
+							.foto
+								
+								&:before
+									content "\e90e"
+									
+								&:hover
+									
+									&:before
+										color #53aa3f
+							
+							.youtube
+								
+								&:before
+									content "\e912"
+								
+								&:hover
+									
+									&:before
+										color #d73d32
+							
+							.archivo
+								
+								&:before
+									content "\e925"
+								
+								&:hover
+									
+									&:before
+										color #d73dd7
+										
+						.textoPost
+							background-color rgba(#FFF, 0)
+							border-radius 5px
+							height 200px
+							overflow auto
+							position relative
+							width 100%
+							
+							.mensajePost
+								background-color rgba(#FFF, 0.6)
+								border none
+								box-sizing border-box
+								height 200px
+								left 0
+								outline none
+								padding 5px 8px
+								position absolute
+								resize none
+								top 0
+								width 100%
+								z-index 5
+									
+								.backgroundImg
+									background-color #FFFFEE
+									width 100%
+									height 50px
+									position relative
+									text-align center
+									z-index 0
+
+								img 
+									background #F00
+									cursor pointer
+									height 50px
+									position absolute
+									width 50px
+									z-index 5
+							
+				.cntMuroRgh
+					box-sizing border-box
+					display none
+					height 100vh
+					overflow hidden
+					padding-bottom 55px
+					
+					.infLblMuro
+						margin 0
+						padding 10px 3px
+
+				.cntCnfMuro,
+				.filtroBody
+
+					div
+						
+						h4
+							margin 0
+							text-align center
+						
+						p
+							margin 0
+							margin-bottom 16px
+
+				.cntCnfMuro
+					margin-bottom 10px
+					text-align center
+					
+					.cntMuro
+						background-color rgba(255,255,255,0.8)
+						border-radius 10px
+						box-sizing border-box
+						display none
+						margin 0 auto
+						padding 1em
+						position relative
+						width 75%
+					
+						div
+							text-align left
+							
+							p
+								cursor pointer
+								display inline-block
+							
+								&:hover
+									text-decoration underline
+									
+									&#btnDesunirse
+										color #F00
+							
+					.iconConfiguracion
+						background-color rgba(255,255,255,0.8)
+						border-radius 5px
+						color gray1
+						cursor pointer
+						display inline-block
+						font-family "icomoon"
+						font-size 23px
+						height 35px
+						line-height 35px
+						text-align center
+						width 35px
+					
+						&:before
+							content "\e90a"
+						
+						&:hover
+							color #000
+				
+				.fltDcMuro
+					
+					.filtroBody
+						background-color rgba(255,255,255,0.8)
+						border-radius 10px
+						box-sizing border-box
+						display none
+						margin 20px auto
+						padding 1em
+						position relative
+						width 75%
+						
+						.filtroDate,
+						.filtroType
+						
+							div
+								cursor pointer
+								border-radius 5px
+								font-size 0
+								
+								p
+									display inline-block
+									font-size 16px
+								
+									&:hover
+										text-decoration underline
+								
+								&.selected
+									color lightness(blue1,45%)
+
+									&:before
+										content "⇢"
+										display inline-block
+										font-size 16px
+										margin-right 3px
+						
+						.filtroDate
+							margin-top 3px
+									
+				.lblMuroSty
+					background-color rgba(255,255,255,0.8)
+					border-radius 30px
+					box-sizing border-box
+					color gray1
+					cursor pointer
+					font-size 18px
+					margin 20px 30px
+					padding 10px 15px
+					text-align center
+					
+					&:hover
+						color #000
+				
+				.infLblMuro
+					display none
+
+				.muroVc
+					display none
+				
+				.rsmInfMuro
+					//padding 10px 15px
+					//width 100%
+					background-color rgba(255,255,255,0.8)
+					border-radius 10px
+					box-sizing border-box
+					margin 20px auto
+					padding 1em
+					position relative
+					width 75%
+					
+					h4
+						margin-bottom 16px 
+						margin-top 5px
+						text-align center
+					
+					.infoP
+						margin-bottom 6px
+						
+						h3
+							font-weight normal
+							margin 0
+							font-size 17px
+							margin-bottom 3px
+							text-align left
+							
+						p
+							color gray2
+							margin 0
+							padding-left 5px
+								
+			.cntDcMuroVc
+				
+				.cntMuroLft
+					
+					.fltLblMuro,
+					.filtroBody
+						display none !important
+				
+				.cntMuroRgh
+					display none
+				
+				.muroVc
+					background #EFF
+					border dashed 1px blue1
+					display block
+					font-size 18px
+					margin 40px 20px
+					padding 15px 0
+					text-align center
+				
+			.cntVrPtdMuro
+				margin-bottom 40px
+				
+				section 
+					
+					.loader-section
+						border-radius 10px
+				
+				.docentesRelacionados
+					//border-top #ccc 7px ridge
+					//box-shadow 5px 5px 20px #555
+					background rgba(255, 255, 255, .75)
+					border-radius 10px
+					box-sizing border-box
+					margin 16px auto
+					padding 16px 16px 32px 16px
+					position relative
+					text-align center
+					width 100%
+					
+					.pageSecCnt
+						position absolute
+						border-radius 10px
+						
+						h3
+							margin 0
+					
+					.docRelMuro
+						margin-top 10px
+						max-height 430px
+						min-height 300px
+						overflow hidden
+						overflow-y auto
+						text-align left
+					
+					.docentesRelacionados-vacio
+						height 100%
+						left 0
+						position absolute
+						top 0
+						width 100%
+						
+						p
+							font-size 18px
+							margin 0
+							text-align center
+							totalCenterElement()
+							width 100%
+					
+					.slct
+						margin-bottom 5px
+							
+				
+				.imagen
+					text-align center
+
+					img
+						height 300px
+						width 100%
+				
+				.hdrPtdMurp
+					margin-top 30px
+					margin-bottom 20px
+					
+					h2
+						background rgba(#FFF,0.9)
+						border-top-left-radius 5px
+						border-top-right-radius 5px
+						margin 0 auto
+						margin-bottom 2px
+						padding 3px 0
+						width 100%
+				
+					.bckPtdMuro
+						border-bottom-left-radius 5px
+						border-bottom-right-radius 5px
+						height 300px
+						margin 0 auto
+						overflow hidden
+						position relative
+
+						.imgPtdMuro
+							background-position center
+							background-repeat no-repeat
+							background-size cover
+							border-radius 2px
+							font-size 2em
+							height 400px
+							height 300px
+							position absolute
+							text-align center
+							width 100%
+				
+				.infCmpPtdMuro
+					background rgba(255, 255, 255, .75)
+					border-radius 10px
+					box-sizing border-box
+					margin 16px auto
+					padding 16px 16px 32px 16px
+					position relative
+					text-align center
+					width 100%
+					
+					.contenedorBotonUnirse
+						margin-bottom 5px
+						margin-top 30px
+					
+					.mt-button
+						display inline-block
+					
+					.infoP
+						margin-bottom 15px
+						
+						h3
+							font-weight normal
+							margin 0
+							margin-bottom 5px
+							text-align left
+							
+						p
+							color gray2
+							margin 0
+							padding-left 5px
+							text-align justify
+							
+							&.curso
+								color #52bb5d
+
+							&.finalizado
+								color red
+
+							&.pendiente
+								color lightness(gray1, 50%)
+			
+			//.contenedorVerProyectoDocente
+								
+			.contenedorTabla
+				background-color #FFF
+				box-shadow 0px 0px 3px #DDD
+				border-radius 10px
+				margin 32px 0
+				padding 16px 20px
+				
+				&.noActive.noInactive
+					
+					.divContainerTableAct
+						
+						.messageElements
+							display none
+						
+					.divContainerTableInact
+						display none
+				
+				&.noActive
+					
+					.divContainerTableAct
+						
+						.bootstrap-table
+							display none
+							
+						.contentMenu
+							
+							.auxiliarMenuEmp
+								display block
+							
+							.auxiliarMenuNotEmp
+								display none
+						
+						.messageElements
+							display block
+
+						.titleElements
+							display none
+				
+				&.noInactive
+					
+					.divContainerTableInact
+						
+						.bootstrap-table
+							display none
+						
+						.contentMenu
+							display none
+						
+						.messageElements
+							display block
+						
+						.titleElements
+							display none
+				
+				.mt-form
+					
+					.slct
+						margin-bottom 30px
+						
+				.tablaFiltroEscuelas
+
+					.noEscuelas
+						margin 0
+						text-align center
+				
+			.divContainerTable
+				margin-bottom 40px
+				// background-color rgba(#FFFFF8,0.7)
+				// border-bottom 1px dashed #CCC
+				// border-radius 5px
+				// border-top 1px dashed #CCC
+				padding 1em 0
+													
+				.contentMenu
+					height 62px
+					margin 20px auto
+					margin-bottom 8px
+					overflow hidden
+					text-align left
+					width 100%
+
+					.auxiliarMenu
+						float left
+						left 50%
+						padding 0
+						position relative
+						
+						.mt-button
+							float left
+							height 50px
+							margin-left 25px
+							position relative
+							right 50%
+							text-align center
+							width 50px
+							
+							i
+								vertical-align top
+								
+								&:before
+									line-height 50px
+									font-size 25px
+							
+							span 
+								vertical-align top
+								display none
+
+						&>:nth-child(1)
+							margin-left 0
+					
+					.auxiliarMenuEmp
+						display none
+						
+					.glyphicon
+						font-family "icomoon"
+						font-style normal
+						
+					.glyphicon-eye-open
+						
+						&:before
+							content "\e9ce"
+							
+					.glyphicon-pencil
+						
+						&:before
+							content "\e907"
+					
+					.glyphicon-plus
+						
+						&:before
+							content "\ea0a"
+							
+					.glyphicon-plus-circle
+						
+						&:before
+							content "\e90c"
+							
+					.glyphicon-trash
+						
+						&:before
+							content "\e90b"
+
+				.messageElements,
+				.titleElements
+					font-size 18px
+					text-align center
+					font-weight bold
+				
+				.messageElements
+					display none
+				
+				.tblContent
+
+					.bs-checkbox
+						display none !important
+				
+			.cntFormPrincl
+				background-color #FFF
+				box-shadow 0px 0px 3px #DDD
+				border-radius 10px
+				box-sizing border-box
+				margin 2em 0
+				padding 1em 0
+				position relative
+				
+				img
+					border-radius 5px
+				
+				h2
+					margin 0
+				
+				h4
+					text-align center
+
+				.nota-cicloEscolar
+					margin 30px 0
+				
+				.fltrMrRsltAux
+					position relative
+
+				.form-buttons
+					
+					.mt-button:nth-child(1)
+						margin-right 30px
+					
+					.mt-button:nth-child(2)
+						margin-left 30px
+						
+				.mt-principal
+					margin 1.3em 0
+			
+			.form-configuracion-administrador,
+			.form-configuracion-docente
+				background-color rgba(255, 255, 255, 0.8)
+				
+				.configuration-more
+					
+					p
+						span 
+							color lightness(blue1,43%)
+							margin-left 35px
+							cursor pointer
+							
+							&:hover
+								text-decoration underline
+
+				.mt-principal
+					margin-top 0
+				
+				#imagen-configuracion
+					margin-bottom 3em
+					
+					&.default
+						
+						p
+							text-align center
+							
+							span
+								left 50%
+								transform translateX(-50%)
+						
+							.eliminarImagen
+								display none
+								
+					p
+						display inline-block
+						margin 0
+						position relative
+						text-align center
+						
+						&:before
+							background-color rgba(0,0,0,0.8)
+							border-radius 5px
+							box-shadow 0px -3px 3px rgba(0,0,0,0.8)
+							bottom 4px
+							content " "
+							height 45px
+							left 0
+							opacity 0.5
+							position absolute
+							transition 0.4s all
+							width 200px
+							z-index 2
+						
+						.eliminarImagen,
+						.nuevaImagen
+							font-size 18px
+							background rgba(#FFF, .85)
+							border-radius 50%
+							bottom 10px
+							cursor pointer
+							height 35px
+							line-height 35px
+							opacity 1
+							overflow hidden
+							position absolute
+							transition 0.2s all
+							width 35px
+							z-index 3
+							
+							&:before
+								font-family "icomoon"
+								
+							&:hover
+								background rgba(#FFF, 1)
+								
+						.eliminarImagen
+							right 7px
+							
+							&:before
+								content "\e904"
+						
+						.nuevaImagen
+							left  7px
+							
+							&:before
+								content "\e909"
+							
+
+						img
+							background-color rgba(#EEE,0.4)
+							height 200px
+							width 200px
+							
+				
+			.cntRdImg             //Para colocar las fotos de prefil 
+
+				.btnCancelAdmin
+					margin 0
+				
+				.mt-form
+					
+					div
+						>*
+							cursor default
+
+				.fotoPerfilConsultar
+					margin-bottom 55px
+					
+					img
+						height 100px
+						width 100px
+			
+			.cntTblEsc
+				
+				.mt-principal
+					
+					#containerTablaEscuelasAgregadas
+						display none
+						margin-bottom 40px
+						background-color rgba(#FFFFF5,0.7)
+						border-bottom 1px dashed #CCC
+						border-radius 5px
+						border-top 1px dashed #CCC
+						padding 1em 0
+						
+						#tblEscuelasAgregadasDocente
+							
+							.btnEliminarEscuelaDocente
+								cursor pointer
+								color #c00
+								
+							.escuela_baja
+								background-color rgba(230,230,220,0.7)
+								color gray1
+								
+							.iconAgregarEscuela
+								margin-right 10px
+								cursor pointer
+								color #2a8d30
+
+					#containerTablaEscuelaEncontrada
+						// background-color rgba(#FFFFF5,0.7)
+						border-bottom 1px dashed #CCC
+						border-radius 5px
+						border-top 1px dashed #CCC
+						display none
+						margin-bottom 40px
+						margin-top -20px
+						padding 1em 0
+					
+						#tblEscuelaDocente
+							cursor pointer
+					
+					.bootstrap-table
+						margin-bottom 1em
+
+					.contenedor-buscar-escuela
+						margin-bottom 40px
+						
+						.txt
+							margin-bottom 15px
+					
+					.escuelaDocente-buttons
+						
+						div
+							&:nth-child(1)
+								margin-right 5px
+							
+							&:nth-child(2)
+								margin-left 5px
+				
+			.form-consultar-docente
+				
+				.mt-principal
+					
+					#containerTablaEscuelasAgregadas
+						display block
+			
+			.form-configuracion-docente,
+			.form-modificar-docente
+				
+				.mt-principal
+					
+					.contenedor-buscar-escuela
+						display none
+			
+			.cntGrd       //Para colocar los grados
+				
+				.mt-principal
+					
+					.seleccionar-grados
+						color gray1
+						
+						>div
+							width 100%
+							
+							&:nth-child(2n+1)
+								margin-left 0
+								
+							label
+								left 50% + 6.5px
+								transform translateX(-10px)
+
+						.ck-label
+							display none
+					
+			.descargar-modulos
+				
+				#nivelesModulos
+					
+					.descargarMod
+						padding 20px 10px 50px 10px
+						
+						table
+							margin-bottom 20px
+							width 100%
+							
+							tr
+								
+								th
+									background lightness(blue1,70%)
+									border-radius 10px
+									font-size 18px
+									padding 5px 0
+
+								td
+									border-radius 10px
+									padding 5px 0
+									
+									&:nth-child(even)
+										width 10%
+										padding-left 0
+										
+									&:nth-child(odd)
+										width 90%
+									
+									.download
+										color #333
+										font-family "icomoon"
+										
+										&:before
+											content "\e910"
+										
+										span 
+											display none
+											
+												
+									&.subtitle
+										text-align center
+										background lightness(blue1,95%)
+					
+					.noSelected
+						position absolute
+						text-align center
+						totalCenterElement()
+						width 100%
+						
+						p
+							background rgba(255,255,220,0.9)
+							border gray1 solid 1px
+							border-radius 5px
+							display inline-block
+							font-size 18px
+							margin 0
+							padding 10px 20px
+
+			.noResult
+				color #000
+				font-size 16px
+				margin 18px 0
+				text-align center !important
+
+			.perfil-informacion
+				
+				.informacion-usuario
+					background-color rgba(255, 255, 255, 0.8)
+					border-radius 10px
+					margin-top 20px
+					padding 10px 0
+					position relative
+					text-align center
+					
+					p
+						span 
+							display block
+							text-align left
+							margin-left 15px
+						
+							&:first-child
+								font-weight bold
+							
+							&:last-child
+								margin-left 20px
+					
+					&:last-child
+						margin-bottom 40px
+					
+					.cntPtdMuro
+						margin-top 20px
+						margin-bottom 0
+						
+						section 
+							
+							article 
+								margin-bottom 30px
+					
+					.docRelMuro
+						margin 0
+						text-align left
+						box-sizing border-box
+						padding 5px 16px
+						position relative
+						
+						/*.noDocentes
+							margin-bottom 15px
+							position static
+							transform none*/
+					
+					.infoUsuario-header
+						border-bottom 1px solid #CCC
+						margin-bottom 10px
+						padding-bottom 5px
+						position relative
+						
+						h3
+							margin 0
+						
+						a
+							color gray1
+							cursor pointer
+							position absolute
+							right 10px
+							top 0
+							
+							&:hover
+								color #3174E3
+								text-decoration none
+								
+								a
+									color #3174E3
+									
+							span
+								
+								&:first-child
+							
+									&:before
+										content "\e906"
+										font-family "icomoon"
+										font-size 20px
+										position relative
+										right 5px
+										top -3px
+								
+								&:last-child
+									display none
+					
+					.empty
+						margin-top 0 !important
+						
+						.sin-resultados
+							background-color transparent
+							border none
+							font-size 16px
+					
+					.slct
+						margin-bottom 10px
+									
+					.tabla-esculas
+						margin 15px 5px 0 5px
+						overflow-x auto
+						overflow-y hidden
+						
+						table
+							border-left 1px solid #CCC
+							width 100%
+							
+							td
+								white-space nowrap
+								text-align left
+								border-right 1px solid #CCC
+							
+							thead
+								
+								tr
+									td
+										border-bottom 1px solid #CCC
+										font-weight bold
+										text-align center
+							
+							tbody
+								
+								tr
+									a
+										display block
+										padding 2px 8px
+									
+									&:hover
+										background-color blue1
+										
+										a
+											text-decoration none
+											color #FFF
+						
+						.noEscuelas
+							color #000
+							font-size 16px
+							text-align center
+							
+
+				.portada-usuario
+					background-color rgba(255, 255, 255, 0.8)
+					border-radius 10px
+					margin-top 20px
+					padding 15px 0
+					position relative
+					text-align center
+					
+					p
+						position absolute
+						right 10px
+						top 10px
+						margin 0
+						
+						a
+							color gray1
+							cursor pointer
+							
+							&:hover
+								color #3174E3
+								text-decoration none
+								
+								a
+									color #3174E3
+									
+							span
+								
+								&:first-child
+							
+									&:before
+										content "\e906"
+										font-family "icomoon"
+										font-size 20px
+										position relative
+										right 5px
+										top -3px
+								
+								&:last-child
+									display none
+					
+					h2
+						display block
+						margin 0
+					
+					img
+						border solid #CCC 1px
+						border-radius 10px
+						display inline-block
+						height 150px
+						width 150px
+					
+					.mensaje
+						border #E8E8E8 solid 1px
+						border-radius 5px
+						cursor pointer
+						display inline-block
+						margin-top 20px
+						padding 4px
+						
+						&:hover
+							
+							span
+								
+								&:before
+									color #000
+						
+						span
+							
+							&:before
+								color gray1
+								content "\f0e0"
+								display block
+								font-family "icomoon"
+								font-size 23px
+								margin-bottom 5px
+				
+				.tipo-usuario
+					text-align center
+					margin-top 20px
+					
+					.fondo
+						background-color rgba(255, 255, 255, 0.9)
+						border-radius 10px
+						display inline-block
+						font-size 18px
+						padding 5px 5px
+						
+						.contenido
+							border #E8E8E8 solid 1px
+							border-radius 10px
+							display inline-block
+							padding 3px 8px
+							
+			.sectCnt
+				background-color #FFF
+				border-radius 10px
+				margin 20px 0
+				min-height 500px
+				position relative
+				
+				h3
+					font-size 32px
+					margin 0
+					padding 15px 0 20px 0
+					text-align center
+					
+				.cntNews
+					
+					a
+						font-size 20px
+
+				.cntNewsVideos
+					padding-bottom 10px
+					
+					.content
+						text-align center
+					
+						.youtubePublicacion
+							background-color #000
+							// border solid 1px rgba(0,0,0,0.5)
+							border-radius 8px
+							display inline-block
+							height 302px
+							margin-bottom 20px
+							margin-right 20px
+							overflow hidden
+							position relative
+							vertical-align top
+							width 302px
+							
+							&:last-child
+								margin-right 0
+
+							iframe
+								border none
+								margin 1px
+								border-radius 8px
+								height 300px
+								overflow hidden
+								width 300px
+
+							.cover-youtube
+								cursor pointer
+								height 302px
+								left 0
+								position absolute
+								top 0
+								width 302px
+
+								&:hover
+									background-color rgba(#FFF,0.5)
+						
+			.sec-info-cnt
+				font-size 0px
+				margin-bottom 100px
+				
+				.parallax-window
+					height 100vh
+					min-height 500px
+				
+				.sec-info
+					background-color rgba(#FFF,0.8)
+					padding 16px
+					font-size 16px
+					text-align center
+					vertical-align middle
+					
+					&:not(.principal)
+						//min-height 950px
+						padding-bottom 62px
+					
+					&.last
+						padding-bottom 25px
+						
+					.table
+						
+						table
+							border black solid 1px
+							margin 0 auto
+							
+							tbody
+								
+								tr
+
+									td
+										padding 5px
+										border-top gray1 solid 1px
+										
+										&:not(:last-child)
+											border-right gray1 solid 1px
+
+							thead 
+								background-color lightness(blue1,90%)
+								
+								tr
+									th
+										padding 5px
+										border-bottom gray1 solid 1px
+										
+										&:not(:last-child)
+											border-right gray1 solid 1px
+							
+							tr
+								
+								td
+									
+									&.bottom
+										border-bottom lightness(gray1,93%) solid 1px
+										
+									&.left 
+										border-right gray1 solid 1px
+										
+										:first-child
+											border-left black solid 1px
+									
+									&.noBorder
+																				
+										td
+											border-top none
+										
+											&:not(:last-child)
+												border-right gray1 solid 1px
+												
+
+					&.principal
+						background-color rgba(#FFF,0.3)
+						
+						.content
+							
+							.text
+								font-size 25px
+								font-style italic
+								text-align center
+							
+							.title
+								text-shadow 1px 1px 1px #000
+								
+						.images
+							
+							img
+								vertical-align: middle;
+								
+								&.sep
+									height 100px
+									width auto
+									margin-right 10px
+
+								&.pase
+									height 80px
+									width auto
+									margin-right 10px
+								
+								&.fair
+									height 80px
+									width auto
+									margin-right 10px
+								
+								&.ine
+									height 80px
+									width auto
+									margin-right 10px
+								
+								&.cona
+									height 60px
+									width auto
+									margin-right 10px
+
+					.content
+						
+						.title
+							color lightness(blue1,30%)
+							font-size 40px
+							text-align center
+							vertical-align bottom
+						
+						
+						p 
+							line-height normal
+							font-size 18px
+							text-align justify
+							
+							.bold
+								display block
+								font-weight bold
+
+					.images
+						margin 32px 0
+						
+						img
+							border-radius 10px
+							height 250px
+							width 250px
+					
+					.videos
+					
+						video
+							max-width 800px
+							width 100%
+						
+			.sin-resultados
+				background #EFF
+				border dashed 1px blue1
+				display block
+				font-size 18px
+				margin 0 20px
+				padding 15px 0
+				text-align center
+		
+		.alert-modal
+			background-color rgba(0,0,0,0.6)
+			display none
+			height 100vh
+			left 0
+			min-width 320px
+			position fixed
+			width 100%
+			z-index 999
+			
+			&.messageError
+				
+				.contentAlert
+					border #A00 solid 1px
+				
+					.headerAlert
+						border-bottom 1px #A00 solid
+						
+						h4
+							color #E00
+			
+			.contentAlert
+				background-color #FFF
+				border-radius 10px
+				box-sizing border-box
+				left 50%
+				margin 0
+				max-height 70vh
+				overflow hidden
+				padding 0
+				position absolute
+				top 45%
+				transform translateY(-50%) translateX(-50%)
+				width 100%
+				z-index 31
+				
+				.headerAlert
+					padding 8px 5px
+					text-align center
+					border-bottom 1px blue1 solid
+					margin-bottom 15px
+
+					h4
+						line-height 18px
+						margin 0
+				
+				.bodyAlert
+					max-height 50vh
+					overflow auto
+					padding 0 10px
+					word-wrap break-word
+				
+				.buttonsAlert
+					height 65px
+					text-align center
+					width 100%
+					
+					&.one-btn
+							
+						.btnAlertAceptar
+							display none
+							
+						.btnAlertCancelar
+							margin-right 0 !important
+							
+					&.two-btn
+						
+						.btnAlertAceptar
+							margin-left 10px
+						
+						.btnAlertCancelar
+							margin-right 10px
+					
+					div
+						height 40px
+						line-height 40px
+						transform translateY(15px)
+						width 70px
+		
+		.btnMnStyl
+			border-radius 50%
+			// box-shadow 2px 2px 5px #000
+			cursor pointer
+			font-family "icomoon"
+			font-size 18px
+			height 50px
+			line-height 50px
+			// opacity 0.8
+			overflow hidden
+			position fixed
+			text-align center
+			width 50px
+			z-index 10
+			
+			&:before
+				color #FFF
+				display inline-block
+		
+		.btn-usr-mn
+			background-color #FFF
+			bottom 10px
+			display none
+			left 130px
+			
+			&.blocked
+				display none !important
+			
+			.img-usr-mn
+				height 50px
+				width 50px
+		
+		.closeButton
+			height 40px
+			position absolute
+			right 0px
+			top 0px
+			width 40px
+			z-index 10
+			
+			&:before
+				// background-color #ee3650
+				border-radius 50%
+				color #000
+				content "X"
+				cursor pointer
+				font-weight bold
+				font-size 20px
+				height 20px
+				line-height 20px
+				position absolute
+				right 5px
+				text-align center
+				top 5px
+				width 20px
+		
+		.docRelMuro
+			margin-top 30px
+			max-height 430px
+			overflow hidden
+			overflow-y auto
+			
+			a
+				&:hover
+					text-decoration none
+			
+			figure
+				display block
+				margin 0
+				margin-bottom 10px
+				text-align left
+				vertical-align top
+				
+				figcaption
+					color #000
+					cursor pointer
+					display inline-block
+					vertical-align middle
+				
+				img
+					border 1px rgba(0,0,0,0.1) solid
+					border-radius 50%
+					cursor pointer
+					height 60px
+					vertical-align middle
+					width 60px
+					
+				.nombre-completo,
+				.nombre-iniciales
+					margin-left 5px
+					color #333
+				
+				.nombre-completo
+					display none
+				
+				.nombre-iniciales
+					display inline-block
+			
+			/*.noDocentes
+				text-align center !important
+				totalCenterElement()*/
+		
+		.form-recuperar-password
+			
+			.mt-principal
+				
+				.modal-buttons
+					margin 0 !important
+					padding-top 0 !important
+
+		.loader-section
+			background-color rgba(0,0,0,0.6)
+			display none
+			height 100%
+			left 0
+			position absolute
+			top 0
+			width 100%
+			z-index 8
+			
+			.spinner
+					height 30px
+					position absolute
+					text-align center
+					width 100px
+					top 50%
+					left 50%
+					transform translateY(-50%) translateX(-50%)
+					
+					>div
+						width 30px
+						height 30px
+						background-color blue1
+						border-radius 100%
+						display inline-block
+						animation sk-bouncedelay 1.4s infinite ease-in-out both
+					
+					.bounce1
+						animation-delay -0.32s
+					
+					.bounce2
+						animation-delay -0.16s
+
+		.marg-one
+			
+			>div.slct:last-child
+				margin-bottom 38px
+			
+			>div.txt:last-child
+				margin-bottom 20px
+		
+		.message-alert
+			display none
+			left 0
+			min-height 50px
+			box-sizing border-box
+			position fixed
+			top 0
+			width 100%
+			z-index 21
+			
+			.bodyMessage
+				background red
+				box-sizing border-box
+				color #FFF
+				cursor pointer
+				height 100%
+				position absolute
+				text-align center
+				width 100%
+			
+			.content
+				totalCenterElement()
+				width 90%
+			
+			.close-message
+				position absolute
+				right 5px
+				top 3px
+				
+				&:hover
+					text-decoration underline
+		
+		.mt-form
+			
+			input,
+			select,
+			textarea 
+				
+				&:disabled,
+				&.disabled
+					-webkit-text-fill-color rgba(187, 187, 187, 1) //Safari
+					border-bottom #BBB solid 2px
+					color #BBB
+		
+		
+		.pageSecCnt,
+		.form-recuperar-password
+			background-color #FFF
+			box-sizing border-box
+			display none
+			height 100%
+			left 0
+			overflow auto
+			padding 0 16px 50px 16px
+			position absolute
+			top 0
+			width 100%
+			z-index 5
+			
+			.title
+				text-align center
+
+				.nombre
+					font-weight bold
+			
+			.rtnDocRelMuro
+				bottom 5px
+				color blue1
+				cursor pointer
+				font-size 20px
+				font-weight bold
+				left 10px
+				position absolute
+				z-index 5
+				
+				&:before
+					content "\e905"
+					font-family "icomoon"
+			
+			.tblDocRelMuro
+				margin-top 40px
+				width 100%
+				
+				thead
+					
+					tr
+						th
+							padding-bottom 5px
+							border-bottom 1px solid #EEE
+							text-align center
+				tbody
+					
+					tr
+						cursor pointer
+						text-align left
+						
+						td
+							padding-left 5px
+						
+						&:hover
+							background-color blue1
+							color #FFF
+		
+		.menuCnt
+			//background-color rgba(blue1,0.95)
+			background-color #FFF
+			color #45494F
+			box-shadow 0px 0px 5px grey
+			font-style normal
+			height 100vh
+			overflow auto
+			position fixed
+			top 0
+			transition 0.2s all
+			width 100%
+			z-index 15
+			
+			&.open
+				transition 0.3s all
+			
+			ul
+				list-style none
+				margin 0
+				margin-top 55px
+				padding 0 35px
+				padding-bottom 20px
+				
+				li
+					cursor pointer
+					text-align center
+					text-align left
+					font-size 17px
+					
+					&:active
+						color rgba(255, 255, 255, 0.50)
+					
+					a
+						border-bottom 1px solid rgba( lightness(#45494F,70%), .2)
+						// border-left 3px solid rgba(#FFF,0.5)
+						padding 14px
+						padding-left 24px
+						transition 0.2s all
+					
+					&.openFile
+						border-bottom 1px solid rgba( lightness(#45494F,70%), .2)
+						// border-left 3px solid rgba(#FFF,0.5)
+						padding 14px
+						padding-left 24px
+						transition 0.2s all
+			
+			.tltMn
+				font-weight bold
+				text-align center
+				position absolute
+				top 15px
+				font-size 23px
+				width 100%
+		
+		.menu-btn	
+			background-color blue1
+			bottom 10px
+			left 10px
+			
+			&:before
+				content "\e600"
+			
+			&.blocked
+				display none !important
+				
+			/*&.menu-hold
+				height 90px
+				width 90px
+				
+				&:before
+					display none*/
+		
+		.search-principal
+			background-color #FFF
+
+			&.sp-body
+				background-color blue1
+			
+				span
+					color #FFF
+
+			span
+				color #45494F
+				
+				&:before
+					content "\e986"
+			
+			&.sp-body
+				bottom 10px
+				left 70px
+				
+				&.blocked
+					display none !important
+				
+				&.hide
+					display none
+				
+		.window-modal
+			background-color rgba(0,0,0,0.6)
+			display none
+			height 100vh
+			left 0
+			min-width 320px
+			position fixed
+			top 0
+			width 100%
+			z-index 20
+			
+			#loader-modal
+				display none
+				height 100%
+				left 0
+				position absolute
+				text-align center
+				top 0
+				width 100%
+				z-index 30
+				
+				.spinner
+					height 30px
+					position absolute
+					text-align center
+					width 100px
+					top 50%
+					left 50%
+					transform translateY(-50%) translateX(-50%)
+					
+					>div
+						width 30px
+						height 30px
+						background-color blue1
+						border-radius 100%
+						display inline-block
+						animation sk-bouncedelay 1.4s infinite ease-in-out both
+					
+					.bounce1
+						animation-delay -0.32s
+					
+					.bounce2
+						animation-delay -0.16s
+				
+			.content-modal
+				background-color #FFF
+				border-radius 10px
+				box-sizing border-box
+				display none
+				left 50%
+				margin 0
+				max-height 75vh
+				overflow hidden
+				padding 0
+				position absolute
+				top 50%
+				transform translateY(-50%) translateX(-50%)
+				width 100%
+				z-index 21
+				
+				&.cnt-modal-prev
+					background-color transparent
+					border-radius 0
+					height 100vh
+					max-height 100vh
+					width 100%
+					z-index 15
+					
+					.body-modal
+						background-color transparent
+						border-radius 0
+						height 100%
+						margin 0
+						max-height 100%
+						overflow hidden
+						padding 0
+						width 100%
+						
+						.previewMul
+							
+							.close-modal-prev
+								height 100vh
+								left 0
+								position absolute
+								top 0
+								width 100vw
+								z-index 1
+								
+							.arrow
+								color #FFF
+								cursor pointer
+								font-family "icomoon"
+								font-size 40px
+								height 55px
+								position absolute
+								verticalCenterElement()
+								width 55px
+								z-index 10
+
+								&:before
+									-moz-filter drop-shadow(5px 0 5px #000) drop-shadow(-5px 0 5px #000) drop-shadow(0 5px 5px #AAA) drop-shadow(0 -5px 5px #AAA)
+									-webkit-filter drop-shadow(5px 0 5px #000) drop-shadow(-5px 0 5px #000) drop-shadow(0 5px 5px #AAA) drop-shadow(0 -5px 5px #AAA)
+									filter drop-shadow(5px 0 5px #000) drop-shadow(-5px 0 5px #000) drop-shadow(0 5px 5px #AAA) drop-shadow(0 -5px 5px #AAA)
+									position absolute
+									totalCenterElement()
+								
+								&:active
+									color blue1
+								
+								&.arrLeft
+									left 0
+									
+									&:before
+										content "\f0a4"
+								
+								&.arrRight
+									right 0
+									
+									&:before
+										content "\f078"
+								
+								&.hide
+									display none
+							
+							.img
+								background-position center
+								background-repeat no-repeat
+								background-size contain
+								height 95vh
+								totalCenterElement()
+								width 95vw
+							
+							.cnt-ytb
+								verticalCenterElement()
+								width 100%
+								z-index 5
+
+								.ytb
+									height 0
+									padding-bottom 56.25%
+									position relative
+								
+									.cnt-iframe
+										height 80%
+										totalCenterElement()
+										width 80%
+									
+										iframe
+											border none
+											height 100%
+											width 100%
+				
+				&.content-modal-info-muro
+					background-color transparent
+					left 50%
+					max-height 85vh
+					padding-top 30px
+					top 20%
+					transform translateY(-20%) translateX(-50%)
+					
+					.body-modal
+						border-radius 10px
+						max-height 85vh
+						padding 0 0 90px 0
+						
+						#ctdInfMuro
+							
+							.image
+								text-align center
+								
+							.imgPtdInfMuro
+								background-position center
+								background-size cover
+								border-radius 10px
+								height 300px
+								width 100%
+							
+							.text
+								padding 10px 15px
+								background-color #FFF
+								border-radius 10px
+								margin-top 10px
+								
+								.infoP
+									margin-bottom 15px
+
+									h3
+										font-weight normal
+										margin 0
+										margin-bottom 5px
+										text-align left
+										
+									p
+										color gray2
+										margin 0
+										padding-left 5px
+										text-align justify
+										
+										&.curso
+											color #52bb5d
+
+										&.finalizado
+											color red
+
+										&.pendiente
+											color lightness(gray1, 50%)
+					
+					.header
+						position relative
+						min-height 30px
+						background-color #FFF
+						border-radius 5px
+						margin-bottom 10px
+
+						.closeButton
+							top -15px
+							
+							&:before
+								left 15px
+						
+						.title
+							text-align center
+							margin 0
+					
+				&.content-proyecto-docente-qr
+					
+					.body-modal
+						padding 2em
+					
+						#qrcode
+							text-align center
+							
+							canvas
+								margin 10px auto
+								display block
+								
+							table 
+								margin 10px auto
+						
+						.title
+							text-align center
+							margin 0
+							margin-bottom 15px
+							font-size 20px
+						
+				.body-modal
+					box-sizing border-box
+					max-height 75vh
+					overflow auto
+					padding 0.5em 1em
+					position relative
+					
+					&.segundoPlano
+						padding 0
+						
+						&.body-proyecto-docente-info
+							padding 0
+						
+						.modal-proyecto-docente-relacionados,
+						.form-logueo
+							display none
+						
+						.form-recuperar-password
+							position relative
+							padding-bottom 0
+						
+					&.body-cambiar-clave
+						padding 20px 64px 20px 64px
+						
+						.form-cambiar-clave
+							
+							.form-text
+								padding 0 16px
+								padding-top 10px
+							
+							.modal-buttons
+								margin 0
+								padding-top 0
+					
+					&.body-proyecto-docente-info
+						min-height 400px
+						overflow hidden
+						padding 16px 25px
+						
+						.docRelMuro
+							margin-top 0
+						
+						.docentesRelacionados-vacio
+							margin-top 60px
+							
+							p
+								text-align center
+						
+						.mt-principal
+								
+							.slct
+								margin-bottom 0
+
+						.pageSecCnt
+							min-height 300px
+							padding-bottom 40px
+							
+							.title
+								margin-top 35px
+								
+
+					h2
+						font-size 1.5em
+						font-weight bold
+						margin-top 0
+						margin-bottom 10px
+						text-align center
+					
+					h3
+						font-weight bold
+						margin-top 0
+						margin-bottom 10px
+						text-align center
+						
+					h4
+						text-align center
+					
+						span 
+							color #EE3650
+					
+					.contenedorGradosDocente
+						
+						p
+							text-align center
+						
+						#contenedorTablaUnionMuro
+							
+							th
+								background-color lightness(gray1,60%)
+								padding 3px 0
+								color #FFF
+								
+								div
+									padding 0
+								
+							tr
+								cursor pointer
+								
+								&:hover
+									background-color #d2f1f9 !important
+								
+								td
+									padding 3px 0
+									padding-left 5px
+							
+							.bs-checkbox
+								display none !important
+											
+						
+						.contenedorGrados
+							margin auto
+							width 50%
+							
+							.gradosElem
+								background-color lightness(gray1,97%)
+								border-radius 5px
+								margin-top 8px
+								overflow hidden
+								border lightness(gray1,95%) solid 1px
+							
+								.element
+									color gray2
+								
+								.title
+									background-color lightness(gray1,60%)
+									color #FFF
+								
+								.element, 
+								.title
+									margin 0
+								
+						
+					.form-desunir-proyecto
+						
+						.form-text
+							margin-top 20px
+
+						.modal-buttons
+							margin 0
+
+					.form-logueo				
+						margin 0
+							
+						p
+							text-align center
+							margin 0
+							
+						.form-check
+							margin 0
+							margin-top -30px
+							padding 0
+							
+							p
+								color gray1
+								position relative
+								top -10px
+						
+						.fPassword
+							margin 16px 0
+							color #1996b3
+							cursor pointer
+							
+							&:hover
+								text-decoration underline
+						
+						.modal-buttons
+							margin 0
+							padding 0
+					
+					.form-video-youtube
+						
+						.mt-form
+							margin-top 16px
+							padding 0
+							height 55px
+					
+					.modal-buttons
+						text-align center
+						margin 20px 0
+							
+						#logueoUsuarios
+							margin-left 30px
+							
+						.cancelarModal
+							margin-right 30px
+
+					.modal-error
+						color #F00
+						margin 0
+						margin-bottom 1em
+						position relative
+						top -10px
+					
+					.modal-proyecto-docente-relacionados
+						margin-top 15px
+						overflow hidden
+						
+						.docRelMuro
+							box-sizing border-box
+							padding-bottom 5px
+					
+						.docRelMdlMuro
+							margin-top 15px
+							max-height 50vh
+							overflow hidden
+							overflow-y auto
+							
+							.title
+								font-size 18px
+								text-align center
+						
+			.helpMessage
+				background-color red
+				color #FFF
+				cursor pointer
+				display none
+				height 30px
+				left 50%
+				line-height 30px
+				position absolute
+				text-align center
+				top 10px
+				transform translateX(-50%)
+				width 130px
+				z-index 99
+				
+				&:active
+					left 50%
+					transform scale(0.9) translateX(-50%)
+					
+			.mt-form
+				
+				.txt, .slct, .commt, .fl
+					width 90% !important
+					margin-left 0 !important
+	
+	.imagen-selector.imagen-loading
+		margin 0
+		position relative
+		
+		&:before, &:after
+			animation sk-bounce 2.0s infinite ease-in-out
+			background-color blue1
+			border-radius 50%
+			content " "
+			height 60px
+			left calc(50% - 30px)
+			opacity 0.6
+			position absolute
+			top calc(50% - 30px)
+			width 60px
+			z-index 100
+		
+		&:after
+			animation-delay -1.0s
+		
+		>div
+			-webkit-filter blur(5px)
+			filter blur(5px)
+			
+			&:after
+				background rgba(#FFF,0.5)
+				content " "
+				height 200px
+				left calc(50% - 100px)
+				position absolute
+				top calc(50% - 100px)
+				width 200px
+				z-index 5
+		
+@media screen and (min-width: 510px)
+	
+	body 
+		
+		#wrapper
+			
+			header 
+				
+				section 
+					
+					#content-sesion
+						
+						figure 
+							
+							figcaption 
+								display inline-block
+
+						.btn-sesion
+							font-size 16px
+							padding 5px
+			
+			#contentSearch
+				
+				&.fixed
+				
+					#busqueda
+						
+						#contendorBotonesBusqueda
+							display inline-block
+						
+						#contendorBusqueda
+							padding 10px 0
+				
+				#busqueda
+					
+					#contendorBotonesBusqueda
+						display inline-block
+						vertical-align middle
+						width 39%
+							
+						.auxBotonesBusqueda
+							
+							div
+								margin-left 10px
+							
+					#contendorBusqueda
+						display inline-block
+						vertical-align middle
+						width 60%
+						
+						#contenedorItemsBusqueda
+							width 125%
+			
+			#webContent
+				
+				#contentMasResultadosBusqueda
+					
+					article
+						border-radius 10px
+						margin 0 auto 10px auto
+						width 90%
+						
+						a
+							.info
+								
+								&.inEscuela,
+								&.inTeacher
+									left 160px
+									width calc(100% - 160px)
+								
+								&.inProyecto
+									left 160px
+									width calc(100% - 160px)
+									
+							.image
+								
+								img
+									border-bottom-left-radius 8px
+									border-bottom-right-radius 8px
+									border-radius 0
+									height 150px
+									margin-left 0
+									width 150px
+								
+								.imgSchool
+									border-bottom-left-radius 8px
+									border-bottom-right-radius 8px
+									border-radius 0
+									font-size 100px
+									height 150px
+									margin-left 0
+									width 150px
+							
+							.info
+								left 145px
+				
+				.contenedor-chats
+					
+					.chats
+						
+						article
+							margin 4px auto
+							width 85%
+					
+					.mensajes
+						
+						.contInt
+							margin auto
+							width 85%
+						
+						.header
+							
+							.usuario
+								max-width 85%
+				
+				.cntPtdMuro
+
+					.proyectos,
+					.modulos
+						
+						article
+							width 88%
+				
+				.cntDcMuro
+					
+					.cntMuroLft
+						width 90%
+					
+						.cntPubMuro
+							
+							.publicacion-proyecto
+								
+								.headerPublicacion
+									
+									.nombreFechaPublicacion
+										
+										p
+											
+											&:first-child
+												
+												a
+													&:first-child
+														display none
+														
+													&:last-child
+														display inline-block
+								
+								.contenedorComentariosPublicaciones
+									
+									.comentarioPublicado
+										
+										p
+											&:nth-child(2)
+												
+												.nombreCompleto
+													display block
+												
+												.nombreIniciales
+													display none
+									
+									.contenedorPublicarComentario
+										text-align left
+										
+										textarea 
+											width calc(90% - 55px)
+
+						.ptdDcMuro
+							
+							.bckDcMuro
+								
+								.bckTop
+									
+									.estatus
+										margin-right 13px
+										margin-top 10px
+										
+							.infDcMuro
+							
+								.infDc
+									
+									.nombre-completo
+										display inline-block
+									
+									.nombre-inciales
+										display none
+										
+						.publicarPost
+							
+							.opciones
+								
+								span
+									margin-right 11.5%
+						
+					.cntCnfMuro
+						
+						.cntMuro
+							width 65%
+							
+					.fltDcMuro
+						
+						.filtroBody
+							width 65%
+					
+					.rsmInfMuro
+						width 65%
+							
+					.lblMuroSty
+						margin 20px auto
+						width 350px
+
+				.cntDcMuroVc
+				
+					.muroVc
+						margin-left 10%
+						margin-right 10%
+						
+				.cntVrPtdMuro
+					
+					.docentesRelacionados
+						width 85%
+					
+					.hdrPtdMurp
+						
+						h2
+							width 95%
+
+						.bckPtdMuro
+							width 95%
+						
+					.infCmpPtdMuro
+						width 85%
+
+				.contenedorTabla
+					
+					.divContainerTable
+					
+						.contentMenu
+							
+							.auxiliarMenu
+								
+								.mt-button
+									margin-left 20px
+									width 100px
+									
+									i
+										display none
+									
+									span 
+										display inline-block
+										line-height 50px
+								
+								&>:nth-child(1)
+									margin-left 0
+				
+				.cntGrd
+					
+					.mt-principal
+						
+						.seleccionar-grados
+							
+							>div
+									
+								label
+									transform translateX(-20px)
+				
+				.descargar-modulos
+					
+					#nivelesModulos
+						
+						.descargarMod
+							
+							table
+								margin 0 auto 20px auto
+								width 80%
+								
+								tr
+									
+									td
+											
+										&:nth-child(odd)
+											padding-left 15px
+					
+				.perfil-informacion
+					
+					.informacion-usuario
+						margin 20px 30px
+						
+						p
+							text-align left
+							
+							span 
+								display inline-block
+								text-align left
+								margin-left 25px
+							
+								&:first-child
+									font-weight bold
+									width 150px
+								
+								&:last-child
+									margin-left 30px
+						
+						.infoUsuario-header
+							
+							a
+								
+								span
+									
+									&:first-child
+								
+										&:before
+											font-size 16px
+											right 5px
+											top 1px
+									
+									&:last-child
+										display inline-block
+					
+					.portada-usuario
+						margin 20px 20px 
+						
+						p
+						
+							a
+								
+								span
+									
+									&:first-child
+								
+										&:before
+											font-size 16px
+											right 5px
+											top 1px
+									
+									&:last-child
+										display inline-block
+				
+				.sec-info-cnt
+
+					.sec-info
+						
+						&.principal
+							
+							.images
+
+								img
+
+									&.sep
+										width 400px
+							
+							.text
+								padding 0 40px
+								
+							.title
+								margin 30px 0
+								font-size 50px
+						
+						.text
+							padding 0 20px
+						
+				.sin-resultados
+					margin-left 10%
+					margin-right 10%
+			
+			.alert-modal
+				
+				.contentAlert
+					width 90%
+							
+			.docRelMuro
+				
+				figure
+				
+					.nombre-iniciales
+						display none
+					
+					.nombre-completo
+						display inline-block
+			
+			.menuCnt
+				
+				ul
+					padding 0 55px
+
+			.window-modal
+				
+				.content-modal
+					width 90%
+					
+					&.content-modal-info-muro
+						
+						.header
+							
+							.closeButton
+								right -4px
+								top -15px
+								
+								&:before
+									left 15px
+							
+							.title
+								text-align center
+								margin 0
+
+					.body-modal
+						padding 1em 2em 0 2em
+				
+						.form-logueo
+							
+							.fPassword
+								margin-top 2em
+						
+						.modal-error
+							top -15px
+
+@media screen and (min-width: 601px)
+
+	#wrapper
+		
+		.marg-one
+			
+			>div.slct
+				margin-bottom 38px
+			
+			>div.txt
+				margin-bottom 20px
+
+@media screen and (min-width: 700px)
+
+	body
+		
+		#wrapper
+					
+			#content-user
+				right -220px
+			
+			#contentSearch
+				
+				#busqueda
+					
+					#contendorBotonesBusqueda
+							
+						.auxBotonesBusqueda
+							
+							div
+								margin-left 25px
+					
+					#contendorBusqueda
+						
+						#contenedorItemsBusqueda
+							width 100%
+			
+			#menu
+
+				#menu-pc-sesion
+					left -220px
+			
+			#webContent
+				
+				#contentMasResultadosBusqueda
+					
+					article 
+						border-radius 10px
+						margin 0 auto 15px auto
+						width 75%
+				
+				#slider-principal
+					
+					.rslides
+						// height 400px
+					
+						li
+							.img
+								height 400px	
+					
+					.important
+						
+						div
+							background-position 0 !important
+				
+				.contenedor-chats
+					
+					&.onlyChats, 
+					&.onlyMensajes
+						
+						.mensajes
+							display inline-block
+					
+						.chats
+							display inline-block
+					
+					.chats
+						border-right 1px #DDD solid
+						height calc(100vh - 51px)
+						margin 0
+						overflow hidden
+						overflow-y auto
+						width calc(40% - 1px)
+						
+						article 
+							margin 4px 0
+							width 100%
+					
+					.mensajes
+						display inline-block
+						height calc(100vh - 51px)
+						margin 0
+						width 60%
+						
+						.footer
+							bottom 0 !important
+							position absolute
+						
+						.header
+							position absolute
+							top 0 !important
+							
+							.return
+								display none
+						
+						.contenido
+							box-sizing border-box
+							height calc(100vh - 51px)
+							overflow-y auto
+							
+				.cntPtdMuro
+					
+					.proyectos,
+					.modulos
+						
+						article
+							vertical-align top
+							width 46%
+							
+							&:nth-child(odd)
+								margin-right 10px
+							
+							&:nth-child(even)
+								margin-left 10px
+				
+				.cntDcMuro
+					
+					.cntMuroLft
+						width 80%
+										
+						.cntPubMuro
+							
+							.publicacion-proyecto
+								
+								.contenedorComentariosPublicaciones
+								
+									.contenedorPublicarComentario
+										text-align left
+										
+										div
+											display inline-block
+											margin-left 20px
+											margin-top 0
+											vertical-align middle
+										
+										textarea 
+											width calc(80% - 55px)
+										
+										&.contenedorModificarComentario
+											
+											div
+												margin-left 3px
+												text-align center
+												
+												.btnCancelarComentario
+													margin-left 2px
+
+												.btnComentar
+													margin-right 2px
+												
+											textarea 
+												width calc(80% - 110px)
+												
+						.icon-likes
+							
+							&:hover
+													
+								&:after
+									display block
+							
+						.ptdDcMuro
+							
+							.bckDcMuro
+								
+								.icSocMuro
+									display none	
+							
+							.infDcMuro
+								
+								.infDc
+									margin-left 5px
+									
+									.nombre-completo,
+									.nombre-inciales
+										width calc(100% - 90px)
+							
+								.infMuro
+									margin-right 6px
+									
+									.icSocMuro
+										display inline-block
+									
+									.likes
+										margin-right 2px
+						
+						.publicarPost
+							
+							.opciones
+								
+								span
+									margin-right 13%
+										
+					//.contenedorProyectoRight
+						
+
+					.cntCnfMuro
+						
+						.cntMuro
+							width 55%
+
+					.fltDcMuro
+						
+						.filtroBody
+							width 55%
+					
+					.rsmInfMuro
+						width 55%
+
+					.lblMuroSty
+						margin 20px auto
+						width 350px
+								
+				.cntDcMuroVc
+				
+					.muroVc
+						margin-left 15%
+						margin-right 15%
+							
+				.cntVrPtdMuro
+					
+					.docentesRelacionados
+						width 75%
+						
+					.hdrPtdMurp
+						
+						h2
+							width 90%
+					
+						.bckPtdMuro
+							width 90%
+					
+					.infCmpPtdMuro
+						width 75%
+				
+				.contenedorTabla
+					
+					.divContainerTable
+					
+						.contentMenu
+							
+							.auxiliarMenu
+								
+								.mt-button
+									margin-left 70px
+									
+								&>:nth-child(1)
+									margin-left 0
+				
+				.cntGrd
+					
+					.mt-principal
+						
+						.seleccionar-grados
+							
+							>div
+									
+								label
+									transform translateX(-30px)
+				
+				.descargar-modulos
+					
+					#nivelesModulos
+						
+						.descargarMod
+							
+							table
+								width 70%
+
+				.perfil-informacion
+					
+					.informacion-usuario
+						margin 20px 60px
+						
+						.cntPtdMuro
+							margin-top 20px
+							margin-bottom 0
+							
+							section 
+								
+								article 
+									display block
+									margin-left auto
+									margin-right auto
+									width 85%
+									
+					.portada-usuario
+						margin 20px 50px
+						
+				.sec-info-cnt
+				
+					.sec-info
+						
+						&.principal
+							
+							.images
+							
+								img
+									
+									&.sep
+										width 500px
+							
+							.text
+								padding 0 60px
+								
+							.title
+								margin 30px 0
+								font-size 55px
+						
+						.text
+							padding 0 30px
+						
+						.images
+							
+							img
+								height 300px
+								width 300px
+				
+				.sin-resultados
+					margin-left 15%
+					margin-right 15%
+			
+			.alert-modal
+				
+				.contentAlert
+					width 70%
+			
+			.menuCnt
+				width 220px
+
+				ul
+					padding 0
+					margin 0
+
+					li
+
+						a
+
+							&:hover
+								background-color #FFF
+								// border-left-color blue1
+								// border-left-style solid
+								color blue1
+								padding-left 30px
+
+						&.openFile
+
+							&:hover
+								// border-left-color blue1
+								// border-left-style solid
+								color blue1
+								padding-left 30px
+				
+				.closeButton
+					display none
+				
+				.tltMn
+					display none
+			
+			.window-modal
+				
+				.content-modal
+					width 70%
+					
+					.body-modal
+						padding 2em 4em 2em 4em
+
+@media screen and (min-width: 890px)
+	
+	body
+		
+		#wrapper
+			min-height 100vh
+			
+			&.home
+				
+				#webContent
+					padding-bottom 55px
+					
+				#menu
+					
+					nav
+
+						#menu-pc
+							display block
+							
+							&.hide
+								display none
+		
+			header
+				height 65px
+				
+				&.searchShow
+					border-radius 0
+				
+					section 
+						border-radius 0
+				
+				section 
+					height 65px
+					
+					h1
+						left 60px
+						font-size 38px
+					
+					#content-sesion
+						height 65px
+						
+						figure 
+							right 15px
+						
+						.btn-sesion
+							padding 5px
+							right 28px
+							
+					.logoPsvc
+						height 65px 
+						width 52px
+
+						img
+							
+							&:nth-child(1)
+								height 60px
+								
+					.menu-btn-pc
+						background-color #FFF
+						border-radius 3px
+						//box-shadow 2px 2px 5px #000
+						cursor pointer
+						font-family "icomoon"
+						font-size 20px
+						font-style normal
+						height 35px
+						left 70px
+						// opacity 0.8
+						position absolute
+						text-align center
+						verticalCenterElement()
+						width 35px
+						z-index 5
+						
+						&:before
+							color #45494F
+							content "\e600"
+							display inline-block
+							line-height 35px
+					
+					.search-principal
+
+						&.sp-head
+							display block
+			
+			//footer
+				//height 35px
+				
+				// .go-top-btn
+					// display none
+			
+			#contentSearch 
+				// margin-top 1px //Aquí -- ocupa este margen aunque esté oculto
+				position relative
+				
+				&.principal
+					background-color rgba(darkGreen,0.8) !important
+					border-radius 0
+					margin-top 0 !important
+
+					#busqueda
+						background-color transparent !important
+
+				&.fixed
+				
+					#busqueda
+						
+						#contendorBotonesBusqueda
+							display inline-block
+						
+						#contendorBusqueda
+							padding 10px 0
+						
+						#iconHide
+							display block
+				
+				#busqueda
+					
+					#contendorBotonesBusqueda
+						display inline-block
+						vertical-align middle
+						width 24%
+							
+						.auxBotonesBusqueda
+							
+							div
+								margin-left 10px
+							
+					#contendorBusqueda
+						display inline-block
+						vertical-align middle
+						width 60%
+						
+						#contentTxtBusqueda
+							
+							.clear
+								right 2.5%
+						
+						#contenedorItemsBusqueda
+							width 98%
+					
+					#iconHide
+						bottom auto
+						left auto
+						right 3%
+						transform none
+						verticalCenterElement()
+						
+						p
+							background-color transparent !important
+							font-size 16px
+							bottom 6px
+							
+							span
+								background-color transparent !important
+								
+								&:before
+									content "\ea0f"
+						
+			#webContent
+				//padding-bottom 55px !important
+				padding-bottom 55px
+				
+				#contentMasResultadosBusqueda
+					min-height calc(100vh - 175px)
+					
+					article
+						display inline-block
+						margin-left 1.2%
+						width 48%
+						
+						&:nth-child(even)
+							margin-right 1.2%
+				
+				#slider-principal
+					margin-top -115px
+					
+					.rslides
+						// height 500px
+						
+						li
+					
+							.img
+								height 500px
+								
+					.important
+					
+						div
+							background-position 0 -10px !important
+						
+				.contenedor-chats
+					height calc(100vh - 68px)
+					min-height auto
+					
+					.chats
+						height calc(100vh - 68px)
+					
+					.mensajes
+						height calc(100vh - 68px) //footer 134px -> 160px
+						//height calc(100vh - 80px)
+						//min-height calc(100vh - 80px)
+							
+						.contInt
+							padding-bottom 100px
+							
+				.cntVrPtdMuro
+					text-align center
+					
+					.docentesRelacionados
+						display inline-block
+						margin-left 5px
+						vertical-align middle
+						width 45%
+					
+					.backgroundProyecto
+						width 80%
+					
+					.infCmpPtdMuro
+						display inline-block
+						margin-right 5px
+						vertical-align middle
+						width 45%
+				
+				.cntDcMuro
+						
+					.cntMuroLft
+						display inline-block
+						margin 20px 10px 20px 15px
+						width 65%
+						
+						.cntCnfMuro
+							display none
+						
+						.fltDcMuro
+							display none
+						
+						.ptdDcMuro
+							
+							.icSocMuro
+								
+								&:hover
+									
+									&:after
+										display block
+							
+					.cntMuroRgh
+						display inline-block
+						margin-left 15px
+						overflow-y auto
+						position absolute
+						right 2.5%
+						top 20px
+						vertical-align top
+						width 27.5%
+						
+						.fltDcMuro
+							display block
+							
+						.lblMuroSty
+							width 100%
+					
+					.cntCnfMuro
+						
+						.cntMuro
+							width 100%
+				
+					.fltDcMuro
+						position relative
+						top -12px
+						width 100%
+
+						.filtroBody
+							display none
+							margin-top 22px
+							width 100%
+					
+					.rsmInfMuro
+						margin-top 0
+						width 100%
+						
+					.lblMuroSty
+						margin-top 22px
+								
+				.cntDcMuroVc
+
+					.cntMuroRgh
+						
+						.fltDcMuro
+							display none
+					
+					.muroVc
+						margin-bottom 0
+						margin-left 20%
+						margin-right 20%
+
+				.cntGrd
+					
+					.mt-principal
+						
+						.seleccionar-grados
+							
+							>div
+									
+								label
+									transform translateX(-40px)
+										
+				.sec-info-cnt
+					margin-bottom 0
+					
+					.sec-info
+						
+						&.last
+							padding-bottom 16px
+						
+						&.principal
+							
+							.text
+								padding 0 60px
+								
+							.title
+								margin 30px 0
+								font-size 60px
+						
+						.content
+						
+							img
+								height 220px
+								width 220px
+								
+							.text
+								padding 0 30px
+						
+						.videos
+							
+							video
+								max-width 800px
+						
+						&.fourth
+						
+							.table
+								
+								table
+									margin 0 30px
+
+				.perfil-informacion
+					
+					.informacion-usuario
+						margin 20px 80px
+
+						.cntPtdMuro
+							margin-top 20px
+							margin-bottom 0
+							
+							section 
+								
+								article 
+									display inline-block
+									margin-left 5px
+									margin-right 5px
+									width 47%
+					
+					.portada-usuario
+						margin 20px 70px 
+				
+				.sin-resultados
+					margin-left 20%
+					margin-right 20%
+			
+			.alert-modal
+				
+				.contentAlert
+					width 50%
+			
+			.btn-usr-mn
+				display none !important
+				
+			.message-alert
+				left 50%
+				min-height 50px
+				top 56px
+				transform translateX(-50%) !important
+				width 40%
+				
+				.bodyMessage
+					border-radius 5px
+					box-shadow 3px 3px 15px #888
+					
+			.menu-btn
+				display none
+			
+			.search-principal
+				
+				&.sp-body
+					display none
+
+			.window-modal
+				
+				.content-modal
+					width 50%
+
+@media screen and (min-width: 1080px)
+
+	body 
+		
+		#wrapper
+			
+			&.home
+				margin 0 auto
+
+			footer
+				font-size 1em
+			
+			#webContent
+				
+				#slider-principal
+					
+					.rslides
+						// height 550px
+						
+						li
+					
+							.img
+								height 550px
+
+					.important
+
+						div
+							background-position 0 -40px !important
+				
+				.cntPtdMuro
+					
+					.proyectos,
+					.modulos
+						
+						article
+							width 48%
+				
+				.cntDcMuro
+					
+					.cntMuroLft
+						
+						.cntPubMuro
+							
+							.publicacion-proyecto
+								
+								.contenedorComentariosPublicaciones
+									
+									.contenedorPublicarComentario
+										
+										&.contenedorModificarComentario
+											
+											div
+												margin-left 5px
+												
+												.btnCancelarComentario
+													margin-left 3px
+
+												.btnComentar
+													margin-right 3px
+											
+											textarea 
+												width calc(80% - 87px)
+					
+				.cntVrPtdMuro
+					
+					.docentesRelacionados
+						margin-left 15px
+					
+					.hdrPtdMurp
+						
+						h2
+							width 65%
+
+						.bckPtdMuro
+							width 65%
+					
+					.infCmpPtdMuro
+						margin-right 15px
+				
+				.contenedorTabla
+					
+					.divContainerTable
+					
+						.contentMenu
+							
+							.auxiliarMenu
+								
+								.mt-button
+									margin-left 110px
+									
+								&>:nth-child(1)
+									margin-left 0
+				
+				.contenedorMisProyectos,
+				.contenedorProyectosDisponibles,
+				.contenedorModulosDisponibles
+					padding 15px
+								
+				.cntGrd
+					
+					.mt-principal
+						
+						.seleccionar-grados
+							
+							>div
+									
+								label
+									transform translateX(-50px)
+							
+				.sec-info
+					
+					.content 
+						
+						img
+							height 300px
+							width 300px
+			
+			.alert-modal
+				
+				.contentAlert
+					width 40%
+			
+			.window-modal
+				
+				.content-modal
+					width 40%
